@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+</head>
+<body>
+<div align="center">
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Bad Roads</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="post.html">Post a Website</a>
+        </li>
+  {{#unless user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/api/register">Sign-up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/login">Login</a>
+        </li>
+  {{/unless}}
+ {{#if user}}
+    <li class="nav-item">
+    <a class="nav-link" href="/api/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/contact">Contact Us</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/donate">Donate Us</a>
+    </li>
+  {{/if}}
+    </ul>
+      <form class="form-inline my-2 my-lg-0">
+        {{#if user}}
+       <a class="nav-link disabled" href="/api/logout">Logout</a>
+       {{/if}}
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  {{{flash}}}
+<form method="post" action="/api/register" enctype="multipart/form-data">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <p><b>Enter Name</b></p>
+    <input type="text" placeholder="Enter name" name="name" >
+
+    <p><b>Email</b></p>
+    <input type="email" placeholder="Enter Email" name="email" >
+
+    <p><b>Username</b></p>
+    <input type="text" placeholder="Enter Username" name="username" >
+    <p><b>Password</b></p>
+    <input type="password" placeholder="Enter Password" name="password" >
+
+     <p><b>Repeat-Password</b></p>
+    <input type="password" placeholder="Repeat Password" name="password2" >
+
+<p class="text-danger">{{{errors}}}</p>
+
+    <p>Profile-Image</p>
+   <input type="file" name="profileimage" />
+
+    <hr>
+    <p>By creating an account you agree to our <a href="#" class="cc">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="btn btn-outline-success" name="submit">Register</button>
+  </div>
+
+  <div class="container signin">
+    <p>Already have an account? <a href="#" class="cc">Sign in</a>.</p>
+  </div>
+</form>
+</div>
+</body>
+</html>

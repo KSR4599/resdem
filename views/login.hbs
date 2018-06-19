@@ -1,0 +1,76 @@
+<html>
+<head>
+
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+</head>
+<body>
+
+
+<div align="center">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Bad Roads</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+      
+  {{#unless user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/api/register">Sign-up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/login">Login</a>
+        </li>
+  {{/unless}}
+  {{#if user}}
+    <li class="nav-item">
+    <a class="nav-link" href="/api/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/contact">Contact Us</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/donate">Donate Us</a>
+    </li>
+  {{/if}}
+    </ul>
+      <form class="form-inline my-2 my-lg-0">
+        {{#if user}}
+       <a class="nav-link disabled" href="/api/logout">Logout</a>
+       {{/if}}
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+{{{flash}}}
+
+<div align="center">
+<form method="post" action="/api/login">
+  <div class="container">
+    <h1>Login</h1>
+    <p>Please fill in this form to log-in to your account.</p>
+    <hr>
+
+    <p><b>Username</b></p>
+    <input type="text" placeholder="Enter Username" name="username" required>
+    <p><b>Password</b></p>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+
+  <br/><button type="submit" class="btn btn-outline-success" name="submit">Login</button>
+  </div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+</head>
+<body>
+
+<script src="jquery/jquery-3.3.1.min.js"> </script>
+  <script src="js/popper.min.js"> </script>
+ <script src="js/bootstrap.min.js"> </script>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="index.html">Bad Roads</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarColor02">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+         <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+       </li>
+       <!--<li class="nav-item">
+         <a class="nav-link" href="post.html">Post a Website</a>
+       </li> -->
+       <li class="nav-item">
+         <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
+       </li>
+
+ {{#unless user}}
+       <li class="nav-item">
+         <a class="nav-link" href="/api/register">Sign-up</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/api/login">Login</a>
+       </li>
+ {{/unless}}
+ {{#if user}}
+   <li class="nav-item">
+   <a class="nav-link" href="/api/profile">Profile</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/contact">Contact Us</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/donate">Donate Us</a>
+   </li>
+ {{/if}}
+   </ul>
+     <form class="form-inline my-2 my-lg-0">
+       {{#if user}}
+      <a class="nav-link disabled" href="/api/logout">Logout</a>
+      {{/if}}
+       <input class="form-control mr-sm-2" type="text" placeholder="Search">
+       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+
+<h1> All the Bad Roads!</h1>
+<div id="map"></div>
+
+<script>
+
+function initMap(){
+  // Map Options
+  var options={
+    zoom:11,
+    center:{lat :17.3850, lng: 78.4867 }
+  }
+  //New Map
+  var map=new google.maps.Map(document.getElementById('map'),options);
+
+var image = '../images/pot.png';
+
+/*
+  //Add marker
+  var marker = new google.maps.Marker({
+    position:{lat:17.4321,lng:78.4385},
+    map:map,
+    icon:image
+
+})
+
+
+var infoWindow = new google.maps.InfoWindow({
+  content:'<h1>A very bad road</h1>'
+})
+
+marker.addListener('click',function(){
+  infoWindow.open(map,marker);
+})
+*/
+addMarker({lat:17.4321,lng:78.4385})
+addMarker({lat:17.3984,lng:78.5583})
+addMarker({lat:17.3916,lng:78.4401})
+
+addMarker()
+
+
+function addMarker(coords){
+  var marker = new google.maps.Marker({
+    position:coords,
+    map:map,
+    icon:image
+
+})
+
+}
+
+}
+
+</script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

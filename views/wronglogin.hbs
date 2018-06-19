@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+</head>
+<body>
+<div align="center">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Bad Roads</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="post.html">Post a Website</a>
+        </li>
+  {{#unless user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/api/register">Sign-up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/login">Login</a>
+        </li>
+  {{/unless}}
+ {{#if user}}
+    <li class="nav-item">
+    <a class="nav-link" href="/api/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/contact">Contact Us</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/donate">Donate Us</a>
+    </li>
+  {{/if}}
+    </ul>
+      <form class="form-inline my-2 my-lg-0">
+        {{#if user}}
+       <a class="nav-link disabled" href="/api/logout">Logout</a>
+       {{/if}}
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Oh snap!Login Credentials didn't seem right!</strong> <a href="/api/login" class="alert-link">Go back to login page!</a>
+</div>
+
+</body>
+</html>

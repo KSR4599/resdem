@@ -1,0 +1,34 @@
+body { background-image:url('/images/kr.gif'); background-repeat:repeat; }
+
+h1{
+  color:burlywood;
+}
+h2{
+  color:aquamarine;
+}
+
+h3{
+  color:azure;
+}
+
+h4{
+  color:yellowgreen;
+}
+
+p{
+  color:peachpuff;
+}
+
+
+.pp {
+  color: antiquewhite; }
+
+  .cc {
+    color:greenyellow;
+
+    }
+
+#map{
+  height:630px;
+  width:100%;
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "name": "web-md",
+    "theme": [
+      "light",
+      "mild"
+    ],
+    "genre": "Health",
+    "admincount":1,
+    "services":[
+       {
+      "Storage":{
+        "FUP":250,
+        "Data":200
+      },
+      "Support":{
+        "Admin":1,
+        "Customer":2
+      },
+      "Time":2
+    }]
+  },
+  {
+    "name": "cnet",
+    "theme": [
+      "dark",
+      "wild"
+    ],
+    "genre": "Technolony",
+    "admincount":1,
+    "services":[
+       {
+      "Storage":{
+        "FUP":200,
+        "Data":250
+      },
+      "Support":{
+        "Admin":2,
+        "Customer":3
+      },
+      "Time":2
+
+    }]
+  },
+  {
+    "name": "stack-overflow",
+    "theme": [
+      "dark",
+      "wild"
+    ],
+    "genre": "Coding",
+    "admincount":2,
+    "services": [
+      {
+      "Storage":{
+        "FUP":350,
+        "Data":400
+      },
+      "Support":{
+        "Admin":3,
+        "Customer":5
+      },
+      "Time":7
+
+    }]
+  },
+  {
+    "name": "Techsomniac",
+    "theme": [
+      "dark",
+      "wild"
+    ],
+    "genre": "Technolony",
+    "admincount":2,
+    "services": [{
+      "Storage":{
+        "FUP":240,
+        "Data":200
+      },
+      "Support":{
+        "Admin":1,
+        "Customer":2
+      },
+      "Time":1
+
+    }]
+  },
+
+  {
+    "name": "dasing-tech",
+    "theme": [
+      "light",
+      "mild"
+    ],
+    "genre": "Coding",
+    "admincount":1,
+    "services":[ {
+      "Storage":{
+        "FUP":50,
+        "Data":200
+      },
+      "Support":{
+        "Admin":4,
+        "Customer":5
+      },
+      "Time":1
+   }]
+  }
+]
