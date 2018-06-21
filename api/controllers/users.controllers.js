@@ -3,7 +3,7 @@ var User = mongoose.model('User')
 var fs= require("fs")
 const multer = require('multer');
 var upload = multer({dest: '../resdem/views/images/profilepics'})
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
 
 module.exports.userRegister = function(req, res){
 res
@@ -12,8 +12,7 @@ res
 
 module.exports.userLogin = function(req, res){
 global.user=req.user;
-res
- .render('login')
+res.render('login')
 }
 
 module.exports.getProfile = function(req, res){
@@ -28,6 +27,18 @@ module.exports.getContact = function(req, res){
 res
  .render('contact')
 }
+
+
+module.exports.newroad = function(req, res){
+
+    var lat=req.body.lat;
+    var lng=req.body.lng;
+
+    res.render('newroad',{lat:lat,lng:lng});
+}
+
+
+
 
 module.exports.sendContact = function(req, res){
 const output=`

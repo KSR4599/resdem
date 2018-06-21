@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+<script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<script src="js\jquery.min.js"> </script>
+  <script src="js\popper.min.js"> </script>
+ <script src="js\bootstrap.min.js"> </script>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="index.html">Bad Roads</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarColor02">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+         <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+       </li>
+       <!--<li class="nav-item">
+         <a class="nav-link" href="post.html">Post a Website</a>
+       </li> -->
+       <li class="nav-item">
+         <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
+       </li>
+
+ {{#unless user}}
+       <li class="nav-item">
+         <a class="nav-link" href="/api/register">Sign-up</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/api/login">Login</a>
+       </li>
+ {{/unless}}
+ {{#if user}}
+ <li class="nav-item">
+ <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
+ </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/profile">Profile</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/contact">Contact Us</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/donate">Donate Us</a>
+   </li>
+ {{/if}}
+   </ul>
+     <form class="form-inline my-2 my-lg-0">
+       {{#if user}}
+      <a class="nav-link disabled" href="/api/logout">Logout</a>
+      {{/if}}
+       <input class="form-control mr-sm-2" type="text" placeholder="Search">
+       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+
+<h1>Enter the location of the Bad Road:-</h1>
+
+<div class="container">
+  <h2 id="text-center">Enter Location:-</h2>
+
+  <form id="location-form">
+    <input type="text" id="location-input" class="form-control form-control-lg" />
+    <br />
+    <button type="submit" class="btn btn-primary btn-block">Location Details</button>
+  </form>
+
+    <div class="card-block" id="formatted-address"></div>
+    <div class="card-block" id="address-components"></div>
+    <div class="card-block" id="geometry"></div>
+</div>
+
+
+<script>
+//call geocode
+//geocode();
+
+//Get Location form
+var locationForm = document.getElementById('location-form');
+
+//Listen for Submit
+locationForm.addEventListener('submit',geocode);
+
+
+function geocode(e){
+    //prevent actual Submit
+    e.preventDefault();
+    var location = document.getElementById('location-input').value;
+     axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+      params:{
+        address: location,
+        key: 'AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs'
+      }
+    })
+    .then(function(response){
+ console.log(response);
+
+ //formatted address
+   var formattedAddress=response.data.results[0].formatted_address;
+  var   formattedAddressOutput =`
+  <ul class="list-group">
+  <li class="list-group-item">${formattedAddress}</li>
+  </ul>
+  `;
+
+//Address Components
+var addressComponents= response.data.results[0].address_components;
+var addressComponentsOutput='<ul class="list-group">';
+for(var i=0;i< addressComponents.length;i++){
+  addressComponentsOutput +=`
+  <li class="list-group-item"><strong>${addressComponents[i].types[0]}</strong>: ${addressComponents[i].long_name}</li>
+  `;
+}
+addressComponentsOutput += '</ul>';
+
+
+//Geometry
+
+  var lat =response.data.results[0].geometry.location.lat;
+  var lng =response.data.results[0].geometry.location.lng;
+
+  var   geometryOutput =`
+ <ul class="list-group">
+ <li class="list-group-item"><strong>Latitude</strong>: ${lat}</li>
+ <li class="list-group-item"><strong>Longitude</strong>: ${lng}</li>
+ </ul>
+ `;
+
+
+
+ //Output to app
+
+document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+document.getElementById('address-components').innerHTML = addressComponentsOutput;
+document.getElementById('geometry').innerHTML = geometryOutput;
+
+
+document.getElementById('lat').value=lat;
+document.getElementById('lng').value=lng;
+
+})
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+</script>
+
+<div align="center">
+
+
+<form method="post" action="/api/newroad">
+<input type="hidden" id="lat" name="lat" value="" />
+<input type="hidden" id="lng" name="lng" value="" />
+<button type="submit" class="btn btn-outline-info"  id="submit">Submit</button>
+</form>
+</div>
+
+</body>
+</html>

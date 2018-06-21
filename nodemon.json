@@ -1,4 +1,9 @@
 {
   "ignore": ["public/*"],
-  "verbose": true
+  "verbose": true,
+
+  "env":{
+    "JWT_KEY":"secret"
+  }
+
 }

@@ -24,6 +24,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 const nodemailer = require('nodemailer')
 
+
+
 //multer
 
 const multerConf = {
@@ -57,7 +59,7 @@ function ensureAuthenticated(req,res,next){
   if(req.isAuthenticated()){
     return next();
   }
-  res.redirect('##');
+  res.render("errorauth");
 }
 
 //ask routes
@@ -71,6 +73,13 @@ router.get('/wronglogin',function(req, res,next){
   res.render('wronglogin')
 })
 
+  router
+    .route('/newroad')
+    .post(ctrlUsers.newroad)
+
+
+
+
 router.get('/donate',function(req, res,next){
   res.render('donate')
 })
@@ -78,6 +87,11 @@ router.get('/donate',function(req, res,next){
 router.get('/allbadroads',function(req, res,next){
   res.render('allroads')
 })
+
+router.get('/addbadroad',function(req, res,next){
+  res.render('addbadroad')
+})
+
 
 router.post('/charge',function(req, res,next){
 
@@ -100,7 +114,7 @@ router
 
   router
    .route('/profile')
-   .get(ctrlUsers.getProfile)
+   .get(ensureAuthenticated,ctrlUsers.getProfile)
 
 router
  .route('/gpic')
@@ -112,8 +126,8 @@ router
 
   router
    .route('/contact')
-   .get(ctrlUsers.getContact)
-   .post(ctrlUsers.sendContact)
+   .get(ensureAuthenticated,ctrlUsers.getContact)
+   .post(ensureAuthenticated,ctrlUsers.sendContact)
  router
   .route('/register')
   .get(ctrlUsers.userRegister)
