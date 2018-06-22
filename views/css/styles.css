@@ -32,3 +32,8 @@ p{
   height:630px;
   width:100%;
 }
+
+.descrip{
+  font-family: 'Acme', sans-serif;
+  font-size: 15px;
+}

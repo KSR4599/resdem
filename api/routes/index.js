@@ -15,6 +15,7 @@ var session = require('express-session')
 var cookieParser = require('cookie-parser')
 var flash = require('express-flash-notification')
 var User=mongoose.model('User')
+var Road = mongoose.model('Road');
 var hbs  = require('express-handlebars');
 var path= require('path')
 var asy = require("async");
@@ -25,8 +26,7 @@ app.use(passport.session());
 const nodemailer = require('nodemailer')
 
 
-
-//multer
+//multer conf for profile pic
 
 const multerConf = {
   storage : multer.diskStorage({
@@ -54,6 +54,36 @@ const multerConf = {
   }
 };
 
+//multer conf for bad pic
+
+const multerConf1 = {
+  storage : multer.diskStorage({
+    destination : function(req, file, next){
+      next(null,'../resdem/views/images/badpics');
+    },
+  filename: function(req, file, next){
+    const ext = file.mimetype.split('/')[1];
+    var user=Date.now();
+    //next(null,file.fieldname + '-'+ Date.now()+'.'+ext);
+    next(null,user+'badpic'+'.'+ext);
+  }
+
+  }),
+  fileFilter: function(req, file, next){
+    if(!file){
+      next();
+    }
+    const image= file.mimetype.startsWith('image/');
+    if(image){
+      next(null, true);
+    }else{
+      next({message: "File type not supported"},false);
+    }
+  }
+};
+
+//end of multerr
+
 
 function ensureAuthenticated(req,res,next){
   if(req.isAuthenticated()){
@@ -73,10 +103,45 @@ router.get('/wronglogin',function(req, res,next){
   res.render('wronglogin')
 })
 
-  router
-    .route('/newroad')
-    .post(ctrlUsers.newroad)
 
+router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,next){
+ var user=req.user;
+  var lat=req.body.lat;
+  var lng=req.body.lng;
+  var description= req.body.description;
+  var location = req.body.location;
+
+
+  if(req.file){
+    console.log('Bad pic Pic Uploaded');
+    var badpic = req.file.filename;
+  }else{
+    console.log('No bad pic Uploaded');
+    var badpic ='nopic.jpeg';
+  }
+
+  Road
+    .create({
+      description : description + user.username,
+      location:location,
+      lat :lat,
+      lng :lng,
+      badpic : badpic
+    }, function(err, road) {
+      if (err) {
+        console.log("Error creating road");
+        res
+          .status(400)
+          .json(err);
+      } else {
+        console.log("New road created!", road);
+        res
+          .status(201)
+          .render('newroad',{lat:lat,lng:lng});
+      }
+    });
+
+        });
 
 
 

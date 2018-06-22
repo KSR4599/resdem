@@ -39,3 +39,4 @@ process.once('SIGUSR2',function(){
 //BRING IN SCHEMAS AND MODELS IN HERE
 require('./asks.model.js');
 require('./users.model.js');
+require('./roads.model.js');

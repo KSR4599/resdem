@@ -147,7 +147,7 @@ module.exports.asksUpdateOne = function(req, res) {
         console.log("Askid not found in database", askid);
         res
           .status(404)
-          .lson({
+          .json({
             "message" : "Ask ID not found " + askid
           });
           return;

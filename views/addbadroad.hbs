@@ -72,7 +72,7 @@
   <h2 id="text-center">Enter Location:-</h2>
 
   <form id="location-form">
-    <input type="text" id="location-input" class="form-control form-control-lg" />
+    <input type="text" id="location" class="form-control form-control-lg" />
     <br />
     <button type="submit" class="btn btn-primary btn-block">Location Details</button>
   </form>
@@ -87,8 +87,12 @@
 //call geocode
 //geocode();
 
+
+
 //Get Location form
 var locationForm = document.getElementById('location-form');
+
+
 
 //Listen for Submit
 locationForm.addEventListener('submit',geocode);
@@ -97,7 +101,7 @@ locationForm.addEventListener('submit',geocode);
 function geocode(e){
     //prevent actual Submit
     e.preventDefault();
-    var location = document.getElementById('location-input').value;
+    var location = document.getElementById('location').value;
      axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
       params:{
         address: location,
@@ -158,13 +162,22 @@ document.getElementById('lng').value=lng;
 
 </script>
 
+<script>document.getElementById("submit").disabled = true;</script>
 <div align="center">
 
 
-<form method="post" action="/api/newroad">
+<form method="post" action="/api/newroad" id="submit-form" enctype="multipart/form-data">
+
+<input type="hidden" id="location" name="location" value=""/>
 <input type="hidden" id="lat" name="lat" value="" />
 <input type="hidden" id="lng" name="lng" value="" />
-<button type="submit" class="btn btn-outline-info"  id="submit">Submit</button>
+<h2>Description:-</h2> <textarea rows="5" cols="150" name="description" class="descrip"></textarea>
+<br />
+<h2>Upload image:-</h2> <input type="file" name="badpic" />
+<br />
+<h2>Upload video:-</h2> <input type="file" name="badvideo" />
+<br /><br /><br /><br />
+<button type="submit" class="btn btn-outline-info">Submit</button>
 </form>
 </div>
 

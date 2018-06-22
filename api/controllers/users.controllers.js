@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var User = mongoose.model('User')
+var Road = mongoose.model('Road');
 var fs= require("fs")
 const multer = require('multer');
 var upload = multer({dest: '../resdem/views/images/profilepics'})
@@ -31,11 +32,29 @@ res
 
 module.exports.newroad = function(req, res){
 
-    var lat=req.body.lat;
-    var lng=req.body.lng;
+var lat=req.body.lat;
+var lng=req.body.lng;
 
-    res.render('newroad',{lat:lat,lng:lng});
-}
+   Road
+      .create({
+         location:req.body.location,
+         description:req.body.description,
+         lat:lat,
+         lng:lng,
+         badpic:req.body.badpic,
+         badvideo:req.body.badvideo
+      }, function(err, road) {
+        if (err) {
+          console.log("Error creating road");
+          res
+            .status(400)
+            .json(err);
+        } else {
+          console.log("New bad road created!", road);
+          res.render('newroad',{lat:lat,lng:lng});
+        }
+      });
+    }
 
 
 
@@ -82,7 +101,7 @@ const output=`
 
 let mailOptions = {
     from: '"KSR🔥" <killershell9@gmail.com>', // sender address
-    to: 'requests4599@gmail.com', // list of receivers
+    to: 'ksreddy4599@gmail.com', // list of receivers
     subject: 'We have received a query request for Askss Website', // Subject line
     text: 'Hello', // plain text body
     html: output // html body
