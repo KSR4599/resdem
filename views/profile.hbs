@@ -23,9 +23,13 @@
        <li class="nav-item active">
          <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
        </li>
-       <li class="nav-item">
+       <!--<li class="nav-item">
          <a class="nav-link" href="post.html">Post a Website</a>
+       </li> -->
+       <li class="nav-item">
+         <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
        </li>
+
  {{#unless user}}
        <li class="nav-item">
          <a class="nav-link" href="/api/register">Sign-up</a>
@@ -35,8 +39,14 @@
        </li>
  {{/unless}}
  {{#if user}}
+ <li class="nav-item">
+ <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
+ </li>
    <li class="nav-item">
    <a class="nav-link" href="/api/profile">Profile</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/uploads">My uploads</a>
    </li>
    <li class="nav-item">
    <a class="nav-link" href="/api/contact">Contact Us</a>
@@ -55,6 +65,7 @@
      </form>
    </div>
  </nav>
+
 <div align="center">
 <h2>Your Profile:-</h2>
 <img src="/images/profilepics/{{pic}}"/>

@@ -92,6 +92,12 @@ function ensureAuthenticated(req,res,next){
   res.render("errorauth");
 }
 
+router.get('/temp',function(req,res,next){
+  var user=req.user;
+  var id=user._id;
+  res.render('temp',{id})
+})
+
 //ask routes
 router.get('/logout',function(req,res,next){
   req.logout();
@@ -135,7 +141,7 @@ var _addService = function (req, res, road) {
 router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,next){
 
   var user=req.user;
-  var id="5b1e4c832f5e0c5b7430e1f7";
+  var id=user._id;
   var lat=req.body.lat;
   var lng=req.body.lng;
   var description= req.body.description;
@@ -171,10 +177,10 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
       if (doc) {
           _addService(req, res, doc);
       } else {
+        req.flash('error','Oops! Something went wrong');
         res
-          .status(response.status)
-          .json(response.message);
-      }
+         .render('err')
+     }
     });
 
         });
@@ -190,10 +196,11 @@ router.get('/allbadroads',function(req, res,next){
 })
 
 
-router
-  .route('/uploads')
-  .get(ctrlUsers.uploads)
-
+router.get('/uploads',function(req, res){
+  var user=req.user;
+  res
+   .render('uploads',{user:user.services});
+ })
 
 
 

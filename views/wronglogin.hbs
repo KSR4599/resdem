@@ -18,9 +18,13 @@
         <li class="nav-item active">
           <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" href="post.html">Post a Website</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
         </li>
+
   {{#unless user}}
         <li class="nav-item">
           <a class="nav-link" href="/api/register">Sign-up</a>
@@ -29,9 +33,15 @@
           <a class="nav-link" href="/api/login">Login</a>
         </li>
   {{/unless}}
- {{#if user}}
+  {{#if user}}
+  <li class="nav-item">
+  <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
+  </li>
     <li class="nav-item">
     <a class="nav-link" href="/api/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/api/uploads">My uploads</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="/api/contact">Contact Us</a>
@@ -50,6 +60,7 @@
       </form>
     </div>
   </nav>
+  
 
 <div class="alert alert-dismissible alert-danger">
   <button type="button" class="close" data-dismiss="alert">&times;</button>

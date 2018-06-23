@@ -37,3 +37,8 @@ p{
   font-family: 'Acme', sans-serif;
   font-size: 15px;
 }
+
+
+.inl{
+ display: inline-block; 
+}

@@ -1,3 +1,6 @@
+"use strict";
+var express = require('express');
+var app = express()
 var mongoose = require('mongoose')
 var User = mongoose.model('User')
 var Road = mongoose.model('Road');
@@ -5,6 +8,19 @@ var fs= require("fs")
 const multer = require('multer');
 var upload = multer({dest: '../resdem/views/images/profilepics'})
 const nodemailer = require('nodemailer');
+var session = require('express-session')
+var cookieParser = require('cookie-parser')
+var flash = require('express-flash-notification')
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
+
 
 module.exports.userRegister = function(req, res){
 res
@@ -129,6 +145,8 @@ let mailOptions = {
 
 
 module.exports.uploads = function(req, res){
+  var user=req.user;
+
 res
- .render('uploads')
+ .render('uploads',{user:user.services});
 }

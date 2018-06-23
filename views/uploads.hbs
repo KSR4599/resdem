@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
-<link href="/css/styles1.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
 </head>
 <body>
 
@@ -42,8 +42,14 @@
        </li>
  {{/unless}}
  {{#if user}}
+ <li class="nav-item">
+ <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
+ </li>
    <li class="nav-item">
    <a class="nav-link" href="/api/profile">Profile</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/uploads">My uploads</a>
    </li>
    <li class="nav-item">
    <a class="nav-link" href="/api/contact">Contact Us</a>
@@ -62,14 +68,75 @@
      </form>
    </div>
  </nav>
+
+
 <h2>Your Uploads:-</h2>
 
-<h3>Uplaod 1:-</h3>
+<div class="col-sm-9 items">
+
+<div class="inl">
+  <p> {{{ user.[0].description }}}</p>
+  <img src="/images/badpics/{{ user.[0].badpic.[0] }}"/>
+</div>
+
+
+  <div class="inl">
+    <p> {{{ user.[1].description }}}</p>
+      <img src="/images/badpics/{{ user.[1].badpic.[0] }}"/>
+    </div>
+  </div>
+
+  <div class="inl">
+    <p> {{{ user.[2].description }}}</p>
+      <img src="/images/badpics/{{ user.[2].badpic.[0] }}"/>
+    </div>
+  </div>
 
 
 
 
+<h3> Your Bad Road Locations on Map:-</h3>
+<div id="map" style="height:500px;width:100%;display:inline-block;"></div>
 
+<script>
+
+function initMap(){
+  // Map Options
+  var options={
+    zoom:10,
+    center: {lat :17.3850, lng: 78.4867 }
+  }
+  //New Map
+  var map=new google.maps.Map(document.getElementById('map'),options);
+
+var image = '../images/pot.png';
+
+var lat= {{ user.[0].location.[0] }}
+var lng= {{ user.[0].location.[1] }}
+
+var lat1= {{ user.[1].location.[0] }}
+var lng1= {{ user.[1].location.[1] }}
+
+var lat2= {{ user.[2].location.[0] }}
+var lng2= {{ user.[2].location.[1] }}
+
+
+addMarker({lat :lat, lng: lng });
+addMarker({lat :lat1, lng: lng1 });
+addMarker({lat :lat2, lng: lng2 });
+
+
+addMarker()
+function addMarker(coords){
+  var marker = new google.maps.Marker({
+    position:coords,
+    map:map,
+    icon:image
+
+})}}
+
+</script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
 
 
 
