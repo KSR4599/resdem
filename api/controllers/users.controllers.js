@@ -126,3 +126,9 @@ let mailOptions = {
 
 
 }
+
+
+module.exports.uploads = function(req, res){
+res
+ .render('uploads')
+}

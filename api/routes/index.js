@@ -104,12 +104,41 @@ router.get('/wronglogin',function(req, res,next){
 })
 
 
+//Code for servicesAddOne
+var _addService = function (req, res, road) {
+  var lat=req.body.lat;
+  var lng=req.body.lng;
+  var badpic = req.file.filename;
+  road.services.push({
+    description :  req.body.description,
+    badpic: badpic,
+    location:[ req.body.lat, req.body.lng]
+  });
+
+  road.save(function(err, roadUpdated) {
+    if (err) {
+      res
+        .status(500)
+        .json(err);
+    } else {
+      res
+        .status(200)
+        .render('newroad',{lat:lat,lng:lng})
+    }
+  });
+
+};
+
+
+
+
 router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,next){
- var user=req.user;
+
+  var user=req.user;
+  var id="5b1e4c832f5e0c5b7430e1f7";
   var lat=req.body.lat;
   var lng=req.body.lng;
   var description= req.body.description;
-  var location = req.body.location;
 
 
   if(req.file){
@@ -120,24 +149,31 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
     var badpic ='nopic.jpeg';
   }
 
-  Road
-    .create({
-      description : description + user.username,
-      location:location,
-      lat :lat,
-      lng :lng,
-      badpic : badpic
-    }, function(err, road) {
+  User
+    .findById(id)
+    .select('services')
+    .exec(function(err, doc) {
+      var response = {
+        status : 200,
+        message : doc
+      };
       if (err) {
-        console.log("Error creating road");
-        res
-          .status(400)
-          .json(err);
+        console.log("Error finding service");
+        response.status = 500;
+        response.message = err;
+      } else if(!doc) {
+        console.log("serviceid not found in database", id);
+        response.status = 404;
+        response.message = {
+          "message" : "Service ID not found " + id
+        };
+      }
+      if (doc) {
+          _addService(req, res, doc);
       } else {
-        console.log("New road created!", road);
         res
-          .status(201)
-          .render('newroad',{lat:lat,lng:lng});
+          .status(response.status)
+          .json(response.message);
       }
     });
 
@@ -152,6 +188,14 @@ router.get('/donate',function(req, res,next){
 router.get('/allbadroads',function(req, res,next){
   res.render('allroads')
 })
+
+
+router
+  .route('/uploads')
+  .get(ctrlUsers.uploads)
+
+
+
 
 router.get('/addbadroad',function(req, res,next){
   res.render('addbadroad')

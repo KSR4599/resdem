@@ -62,69 +62,15 @@
      </form>
    </div>
  </nav>
+<h2>Your Uploads:-</h2>
+
+<h3>Uplaod 1:-</h3>
 
 
-<h1> Your Bad Road Location:-</h1>
-<div id="map"></div>
-
-<script>
-
-function initMap(){
-  // Map Options
-  var options={
-    zoom:10,
-    center:{lat :17.3850, lng: 78.4867 }
-  }
-  //New Map
-  var map=new google.maps.Map(document.getElementById('map'),options);
-
-var image = '../images/pot.png';
-
-/*
-  //Add marker
-  var marker = new google.maps.Marker({
-    position:{lat:17.4321,lng:78.4385},
-    map:map,
-    icon:image
-
-})
 
 
-var infoWindow = new google.maps.InfoWindow({
-  content:'<h1>A very bad road</h1>'
-})
-
-marker.addListener('click',function(){
-  infoWindow.open(map,marker);
-})
-*/
-//addMarker({lat:17.3916,lng:78.4401})
-addMarker({lat: {{{lat}}} , lng: {{{lng}}} })
-
-addMarker()
 
 
-function addMarker(coords){
-  var marker = new google.maps.Marker({
-    position:coords,
-    map:map,
-    icon:image
-
-})
-
-}
-
-}
-
-</script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
-
-<div align="center">
-  <form action="/api/uploads" method="get">
-    <br />
-  <button type="submit" class="btn btn-outline-warning">Confirm</button>
-  </form>
-</div>
 
 
 

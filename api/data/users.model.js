@@ -1,6 +1,13 @@
 var mongoose = require('mongoose');
 var bcrypt=require('bcryptjs')
 
+var serviceSchema = new mongoose.Schema({
+  description:[String],
+  badpic:[String],
+  location:[Number]
+})
+
+
 var userSchema= new mongoose.Schema({
     name: {
       type: String,
@@ -19,7 +26,8 @@ var userSchema= new mongoose.Schema({
 
       profileimage:{
         type:String
-    }
+    },
+    services:[serviceSchema]
   })
 
 var User=module.exports=mongoose.model('User',userSchema);
@@ -35,7 +43,7 @@ module.exports.getUserByUsername = function(username, callback){
 
 module.exports.comparePassword = function(candidatePassword,hash,callback){
   bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-    
+
   callback(null,isMatch);
 });
 }

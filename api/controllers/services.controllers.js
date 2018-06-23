@@ -164,7 +164,7 @@ module.exports.servicesUpdateOne = function(req, res) {
         };
       } else {
         // Get the review
-        thisService = ask.services.id(serviced);
+        thisService = ask.services.id(serviceid);
         // If the review doesn't exist Mongoose returns null
         if (!thisService) {
           response.status = 404;
