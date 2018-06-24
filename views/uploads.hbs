@@ -72,6 +72,27 @@
 
 <h2>Your Uploads:-</h2>
 
+<script>
+
+var text = [];
+var src=[];
+var i;
+for (i = 0; i < 2; i++) {
+    text.push("{{{ user.[i].description }}}") ;
+     src.push("/images/badpics/{{ user.[i].badpic.[0] }}");
+}
+document.getElementById("text").innerHTML = text;
+document.getElementById("src").innerHTML = src;
+</script>
+
+<div class="col-sm-9 items">
+
+<div class="inl">
+  <h2 id="text"></h2>
+</div>
+</div>
+
+<!--
 <div class="col-sm-9 items">
 
 <div class="inl">
@@ -84,15 +105,14 @@
     <p> {{{ user.[1].description }}}</p>
       <img src="/images/badpics/{{ user.[1].badpic.[0] }}"/>
     </div>
-  </div>
+
 
   <div class="inl">
     <p> {{{ user.[2].description }}}</p>
       <img src="/images/badpics/{{ user.[2].badpic.[0] }}"/>
     </div>
   </div>
-
-
+-->
 
 
 <h3> Your Bad Road Locations on Map:-</h3>
@@ -111,19 +131,15 @@ function initMap(){
 
 var image = '../images/pot.png';
 
-var lat= {{ user.[0].location.[0] }}
-var lng= {{ user.[0].location.[1] }}
 
-var lat1= {{ user.[1].location.[0] }}
-var lng1= {{ user.[1].location.[1] }}
-
-var lat2= {{ user.[2].location.[0] }}
-var lng2= {{ user.[2].location.[1] }}
+var k,i,cords=[{{user.[0].location.[0]}},{{user.[0].location.[1]}},{{user.[1].location.[0]}},{{user.[1].location.[1]}},{{user.[2].location.[0]}},{{user.[2].location.[1]}},{{user.[3].location.[0]}},{{user.[3].location.[1]}},{{user.[4].location.[0]}},{{user.[4].location.[1]}},{{user.[5].location.[0]}},{{user.[5].location.[1]}},{{user.[6].location.[0]}},{{user.[6].location.[1]}},{{user.[7].location.[0]}},{{user.[7].location.[1]}},{{user.[8].location.[0]}},{{user.[8].location.[1]}},{{user.[9].location.[0]}},{{user.[9].location.[1]}}];
+k=0;
+i=0;
 
 
-addMarker({lat :lat, lng: lng });
-addMarker({lat :lat1, lng: lng1 });
-addMarker({lat :lat2, lng: lng2 });
+for(i=0;i<=18;i=i+2){
+addMarker({ lat : cords[i], lng : cords[i+1]});
+}
 
 
 addMarker()
@@ -132,8 +148,9 @@ function addMarker(coords){
     position:coords,
     map:map,
     icon:image
-
-})}}
+})
+}
+}
 
 </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>

@@ -110,6 +110,28 @@ router.get('/wronglogin',function(req, res,next){
 })
 
 
+
+router.get('/donate',function(req, res,next){
+  res.render('donate')
+})
+
+router.get('/allbadroads',function(req, res,next){
+  res.render('allroads')
+})
+
+
+router.get('/uploads',function(req, res){
+  var user=req.user;
+  res
+   .render('uploads',{user:user.services});
+ })
+
+
+
+router.get('/addbadroad',function(req, res,next){
+  res.render('addbadroad')
+})
+
 //Code for servicesAddOne
 var _addService = function (req, res, road) {
   var lat=req.body.lat;
@@ -185,28 +207,6 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
 
         });
 
-
-
-router.get('/donate',function(req, res,next){
-  res.render('donate')
-})
-
-router.get('/allbadroads',function(req, res,next){
-  res.render('allroads')
-})
-
-
-router.get('/uploads',function(req, res){
-  var user=req.user;
-  res
-   .render('uploads',{user:user.services});
- })
-
-
-
-router.get('/addbadroad',function(req, res,next){
-  res.render('addbadroad')
-})
 
 
 router.post('/charge',function(req, res,next){

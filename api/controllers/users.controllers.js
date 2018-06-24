@@ -148,5 +148,5 @@ module.exports.uploads = function(req, res){
   var user=req.user;
 
 res
- .render('uploads',{user:user.services});
+ .render('uploads',{x:'0',us:user.services,user:user});
 }
