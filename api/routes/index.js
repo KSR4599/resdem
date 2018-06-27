@@ -82,6 +82,33 @@ const multerConf1 = {
   }
 };
 
+//multer conf for bad video
+
+const multerConf2 = {
+  storage : multer.diskStorage({
+    destination : function(req, file, next){
+      next(null,'../resdem/views/images/badvideos');
+    },
+  filename: function(req, file, next){
+    const ext = file.mimetype.split('/')[1];
+    var user=Date.now();
+    //next(null,file.fieldname + '-'+ Date.now()+'.'+ext);
+    next(null,user+'badvid'+'.'+ext);
+  }
+
+  }),
+  fileFilter: function(req, file, next){
+    if(!file){
+      next();
+    }
+    const video= file.mimetype.startsWith('video');
+    if(video){
+      next(null, true);
+    }else{
+      next({message: "File type not supported"},false);
+    }
+  }
+};
 //end of multerr
 
 
@@ -123,7 +150,7 @@ router.get('/allbadroads',function(req, res,next){
 router.get('/uploads',function(req, res){
   var user=req.user;
   res
-   .render('uploads',{user:user.services});
+   .render('uploads',{user:user.services,us:user});
  })
 
 
@@ -137,9 +164,11 @@ var _addService = function (req, res, road) {
   var lat=req.body.lat;
   var lng=req.body.lng;
   var badpic = req.file.filename;
+  var badvideo = req.file.filename;
   road.services.push({
     description :  req.body.description,
     badpic: badpic,
+    badvideo:badvideo,
     location:[ req.body.lat, req.body.lng]
   });
 
@@ -175,6 +204,14 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
   }else{
     console.log('No bad pic Uploaded');
     var badpic ='nopic.jpeg';
+  }
+
+  if(req.file){
+    console.log('Bad vid Uploaded');
+    var badvideo = req.file.filename;
+  }else{
+    console.log('No bad vid Uploaded');
+    var badvideo ='novid.mp4';
   }
 
   User

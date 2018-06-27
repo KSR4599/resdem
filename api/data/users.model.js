@@ -4,6 +4,7 @@ var bcrypt=require('bcryptjs')
 var serviceSchema = new mongoose.Schema({
   description:[String],
   badpic:[String],
+  badvideo:[String],
   location:[Number]
 })
 
@@ -27,6 +28,7 @@ var userSchema= new mongoose.Schema({
       profileimage:{
         type:String
     },
+
     services:[serviceSchema]
   })
 

@@ -19,6 +19,11 @@ p{
   color:peachpuff;
 }
 
+img{
+  height:300px;
+  width:420px;
+}
+
 
 .pp {
   color: antiquewhite; }
@@ -40,5 +45,5 @@ p{
 
 
 .inl{
- display: inline-block; 
+ display: inline-block;
 }

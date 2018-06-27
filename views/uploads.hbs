@@ -5,12 +5,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
+<script src="jquery/jquery-3.3.1.min.js"> </script>
+
+
 </head>
 <body>
 
-<script src="jquery/jquery-3.3.1.min.js"> </script>
   <script src="js/popper.min.js"> </script>
- <script src="js/bootstrap.min.js"> </script>
+  <script src="js/bootstrap.min.js"> </script>
+
 
 
 
@@ -71,50 +74,61 @@
 
 
 <h2>Your Uploads:-</h2>
-
-<script>
-
-var text = [];
-var src=[];
-var i;
-for (i = 0; i < 2; i++) {
-    text.push("{{{ user.[i].description }}}") ;
-     src.push("/images/badpics/{{ user.[i].badpic.[0] }}");
-}
-document.getElementById("text").innerHTML = text;
-document.getElementById("src").innerHTML = src;
-</script>
-
-<div class="col-sm-9 items">
+<div>
 
 <div class="inl">
-  <h2 id="text"></h2>
-</div>
-</div>
-
-<!--
-<div class="col-sm-9 items">
-
+   <h4>{{{ user.[0].description }}}</h4>
+     <img src="/images/badpics/{{ user.[0].badpic.[0] }}" alt=""/>
+   </div>
+   <br />
 <div class="inl">
-  <p> {{{ user.[0].description }}}</p>
-  <img src="/images/badpics/{{ user.[0].badpic.[0] }}"/>
+    <h4> {{{ user.[1].description }}}</h4>
+      <img src="/images/badpics/{{ user.[1].badpic.[0] }}" alt=""/>
+    </div>
+    <br />
+<div class="inl">
+    <h4> {{{ user.[2].description }}}</h4>
+      <img src="/images/badpics/{{ user.[2].badpic.[0] }}" alt=""/>
+    </div>
+    <br />
+    <div class="inl">
+      <h4> {{{ user.[3].description }}}</h4>
+        <img src="/images/badpics/{{ user.[3].badpic.[0] }}" alt=""/>
+      </div>
+      <br />
+
+      <div class="inl">
+        <h4> {{{ user.[4].description }}}</h4>
+          <img src="/images/badpics/{{ user.[4].badpic.[0] }}" alt=""/>
+        </div>
+        <br />
+        <div class="inl">
+          <h4> {{{ user.[5].description }}}</h4>
+            <img src="/images/badpics/{{ user.[5].badpic.[0] }}" alt=""/>
+          </div>
+          <br />
+          <div class="inl">
+          <h4> {{{ user.[6].description }}}</h4>
+              <img src="/images/badpics/{{ user.[6].badpic.[0] }}" alt=""/>
+            </div>
+            <br />
+
+            <div class="inl">
+              <h4> {{{ user.[7].description }}}</h4>
+                <img src="/images/badpics/{{ user.[7].badpic.[0] }}" alt=""/>
+              </div>
+              <br />
+              <div class="inl">
+                <h4> {{{ user.[8].description }}}</h4>
+                  <img src="/images/badpics/{{ user.[8].badpic.[0] }}" alt=""/>
+                </div>
+                <br />
+                <div class="inl">
+                  <h4> {{{ user.[9].description }}}</h4>
+                    <img src="/images/badpics/{{ user.[9].badpic.[0] }}" alt=""/>
+                  </div>
+                  
 </div>
-
-
-  <div class="inl">
-    <p> {{{ user.[1].description }}}</p>
-      <img src="/images/badpics/{{ user.[1].badpic.[0] }}"/>
-    </div>
-
-
-  <div class="inl">
-    <p> {{{ user.[2].description }}}</p>
-      <img src="/images/badpics/{{ user.[2].badpic.[0] }}"/>
-    </div>
-  </div>
--->
-
-
 <h3> Your Bad Road Locations on Map:-</h3>
 <div id="map" style="height:500px;width:100%;display:inline-block;"></div>
 
