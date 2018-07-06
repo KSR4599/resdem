@@ -1,11 +1,51 @@
-<!DOCTYPE html>
-<script>
-var text = "";
-var i;
-for (i = 0; i < 9; i++) {
-des=[{{user.[0].description}},{{user.[1].description}},{{user.[2].description}},{{user.[3].description}}];
-}
-document.getElementById("dess").innerHTML = des;
-</script>
+<html>
+<head>
+  <title>TEST</title>
+  <style>
+  .bottom {
+    position: fixed;
+    text-align: center;
+    bottom: 0px;
+    width: 100%;
+  }
+  </style>
 
-<h1 id="dess"></h1>
+</head>
+<body>
+  <form method="post" action="/api/uploadtemp1" enctype="multipart/form-data">
+      <input type="file" name="videoFile"><br>
+      <input type="submit" value="Submit">
+  </form>
+
+
+  <video width="320" height="240" controls>
+    <source src="../images/badvideos/1530709920072vid.mp4" type="video/mp4">
+
+  </video>
+
+
+</body>
+<div id="disqus_thread" class="bottom"></div>
+
+
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://badroads.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</html>

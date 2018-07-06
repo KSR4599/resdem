@@ -25,6 +25,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 const nodemailer = require('nodemailer')
 
+var upload = multer(
+  {
+  storage : multer.diskStorage({
+    destination : function(req, file, next){
+      next(null,'../resdem/views/images/badvideos');
+    },
+  filename: function(req, file, next){
+    const ext = file.mimetype.split('/')[1];
+    var user=Date.now();
+    //next(null,file.fieldname + '-'+ Date.now()+'.'+ext);
+    next(null,user+'vid'+'.'+ext);
+  }
+
+  }),
+}
+
+);
+
 
 //multer conf for profile pic
 
@@ -83,7 +101,6 @@ const multerConf1 = {
 };
 
 //multer conf for bad video
-
 const multerConf2 = {
   storage : multer.diskStorage({
     destination : function(req, file, next){
@@ -101,7 +118,7 @@ const multerConf2 = {
     if(!file){
       next();
     }
-    const video= file.mimetype.startsWith('video');
+    const video= file.mimetype.startsWith('video/');
     if(video){
       next(null, true);
     }else{
@@ -109,6 +126,7 @@ const multerConf2 = {
     }
   }
 };
+
 //end of multerr
 
 
@@ -124,6 +142,19 @@ router.get('/temp',function(req,res,next){
   var id=user._id;
   res.render('temp',{id})
 })
+
+router.get('/tempp',function(req,res,next){
+  res.render('tempp');
+})
+
+router.get('/uploadtemp',function(req,res,next){
+  res.render('tempp');
+})
+
+router.post('/uploadtemp1',upload.any(),function(req,res,next){
+  res.render('tempp');
+})
+
 
 //ask routes
 router.get('/logout',function(req,res,next){
@@ -148,10 +179,61 @@ router.get('/allbadroads',function(req, res,next){
 
 
 router.get('/uploads',function(req, res){
+var user=req.user;
+res.render('uploads',{user:user.services,us:user});
+});
+
+router.post('/uploads',multer(multerConf2).single('badvideo'),function(req, res){
   var user=req.user;
-  res
-   .render('uploads',{user:user.services,us:user});
+  var id=user._id;
+
+
+  if(req.file){
+    console.log('Bad vid Uploaded');
+    var badvideo = req.file.filename;
+  }else{
+    console.log('No bad vid Uploaded');
+    var badvideo ='novid.mp4';
+  }
+
+
+  User
+    .findById(id)
+    .select('-services')
+    .exec(function(err, user) {
+      if (err) {
+        console.log("Error finding user");
+        res
+          .status(500)
+          .json(err);
+          return;
+      } else if(!user) {
+        console.log("userid not found in database", id);
+        res
+          .status(404)
+          .json({
+            "message" : "USer ID not found " + id
+          });
+          return;
+      }
+
+     //user.badvideo=req.file.filename;
+
+
+
+      user
+        .save(function(err, userUpdated) {
+             res
+              .status(204)
+              .render('uploads',{user:user.services,us:user})
+
+        });
+});
  })
+
+
+
+ //end of uploads
 
 
 
@@ -164,11 +246,10 @@ var _addService = function (req, res, road) {
   var lat=req.body.lat;
   var lng=req.body.lng;
   var badpic = req.file.filename;
-  var badvideo = req.file.filename;
   road.services.push({
     description :  req.body.description,
     badpic: badpic,
-    badvideo:badvideo,
+    //badvideo:req.body.badvideo,
     location:[ req.body.lat, req.body.lng]
   });
 
@@ -206,13 +287,7 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
     var badpic ='nopic.jpeg';
   }
 
-  if(req.file){
-    console.log('Bad vid Uploaded');
-    var badvideo = req.file.filename;
-  }else{
-    console.log('No bad vid Uploaded');
-    var badvideo ='novid.mp4';
-  }
+//var badvideo=req.body.filename;
 
   User
     .findById(id)

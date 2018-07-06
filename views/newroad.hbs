@@ -119,8 +119,9 @@ function addMarker(coords){
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
 
 <div align="center">
-  <form action="/api/uploads" method="get">
+  <form action="/api/uploads" method="get"  enctype="multipart/form-data">
     <br />
+  <h2>Confirm and Upload the video:-</h2> <input type="file" name="badvideo" />
   <button type="submit" class="btn btn-outline-warning">Confirm</button>
   </form>
 </div>

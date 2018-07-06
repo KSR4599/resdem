@@ -33,6 +33,7 @@ img{
 
     }
 
+
 #map{
   height:630px;
   width:100%;
@@ -45,5 +46,5 @@ img{
 
 
 .inl{
- display: inline-block;
+ display: inline;
 }

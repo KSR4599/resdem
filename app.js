@@ -7,6 +7,7 @@ var expressValidator = require('express-validator');
 var path= require('path')
 var bodyParser= require('body-parser')
 var routes = require('./api/routes')
+var routes1 = require('./api/routes1')
 var hbs = require('express-handlebars')
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
@@ -115,6 +116,7 @@ app.use(bodyParser.urlencoded({ extended : false}))
 
 //if a request starting with /api occurs it searches automatically in the routes folder.
 app.use('/api',routes)
+app.use('/api1',routes1)
 
 //making use of variable to configure the server properties..
 var server = app.listen(app.get('port'),function(){
