@@ -4,10 +4,12 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
 <script>
+var x=0;
 function myFunction() {
   swal({ title: "You are now registered!",
   text: "Now you can login to your Account!",
@@ -17,6 +19,16 @@ function myFunction() {
   }
   });
 }
+
+if({{x}}==3){
+  swal({
+  title: "Oops!",
+  text: "User with that email already exists!",
+  icon: "warning",
+  button: "ok",
+})
+}
+
 </script>
 
 <div align="center">

@@ -43,11 +43,13 @@ callbackURL:googleAuth.callbackURL
 },
 function(accessToken, refreshToken,profile,done){
   process.nextTick(function(){
-    User.findOne({'google.id':profile.id},function(err,user){
-      if(err)
+    User.findOne({ 'email':profile.emails[0].value},function(err,user){
+      if(err){
         return done(err);
-      if(user)
+      }
+      if(user){
        return done(null,user);
+     }
       else {
 
     var newUser = new User({

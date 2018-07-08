@@ -1,4 +1,4 @@
- "use strict";
+"use strict";
 var express = require('express');
 var app = express()
 var expressValidator = require('express-validator');
@@ -358,13 +358,11 @@ router
 
 /*
   router.post('/register',multer(multerConf).single('profileimage'),function(req, res,next){
-
     var name= req.body.name;
     var email = req.body.email;
     var username=req.body.username;
     var password=req.body.password;
     var password2=req.body.password2;
-
     if(req.file){
       console.log('Profile Pic Uploaded');
       var profileimage = req.file.filename;
@@ -372,7 +370,6 @@ router
       console.log('No Profile pic Uploaded');
       var profileimage ='nopic.jpeg';
     }
-
     //form validation
     req.checkBody('password2','passwords do not match'). equals(req.body.password);
     //Check Errors
@@ -383,7 +380,6 @@ router
     });
   }
     else{
-
       var newUser = new User({
         username:username,
         name: name,
@@ -394,16 +390,11 @@ router
       User.createUser(newUser,function(err, user){
         if(err) throw err;
         console.log(user);
-
       })
-
       req.flash('Success:-', 'You are now registered and can Login!',false);
        res.redirect('/api/');
-
   }
-
 })
-
 */
 router.post('/register',multer(multerConf).single('profileimage'),function(req, res,next){
 
@@ -412,6 +403,14 @@ router.post('/register',multer(multerConf).single('profileimage'),function(req, 
   var username=req.body.username;
   var password=req.body.password;
   var password2=req.body.password2;
+
+  User.findOne({ 'email': req.body.email}, function(err, user) {
+    if(user){
+      res.render('register',{x:3});
+    }
+    else{
+
+
 
   if(req.file){
     console.log('Profile Pic Uploaded');
@@ -482,6 +481,11 @@ if(password!==password2){
     res.render('login',{x:1});
 
 }
+}
+
+
+})
+
 })
 
 
