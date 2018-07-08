@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 
@@ -33,13 +34,13 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <!--<li class="nav-item">
         <a class="nav-link" href="post.html">Post a Website</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
+        <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
       </li>
 
 {{#unless user}}
@@ -77,6 +78,16 @@
     </form>
   </div>
 </nav>
+
+<script>
+  swal({
+    title: "We have received your query! 📃",
+    text: "We will look forward to the issue as soon as possible 👍🏻",
+    icon: "success",
+    button: "👍🏻",
+  });
+</script>
+
 
 
 

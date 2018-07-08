@@ -28,7 +28,13 @@ var userSchema= new mongoose.Schema({
         type:String
     },
 
-    services:[serviceSchema]
+    services:[serviceSchema],
+    google :{
+      id: String,
+      token: String,
+      email: String,
+      name: String
+    }
 
 
   })

@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
 </head>
 <body>
 
@@ -12,8 +18,8 @@
   <script src="js/popper.min.js"> </script>
  <script src="js/bootstrap.min.js"> </script>
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="index.html">Bad Roads</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="index.html" style="font-family: 'Berkshire Swash', cursive;color:rgb(215, 64, 9);">Bad Roads</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
@@ -21,13 +27,13 @@
    <div class="collapse navbar-collapse" id="navbarColor02">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-         <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
        </li>
        <!--<li class="nav-item">
          <a class="nav-link" href="post.html">Post a Website</a>
        </li> -->
        <li class="nav-item">
-         <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
+         <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
        </li>
 
  {{#unless user}}
@@ -67,9 +73,37 @@
  </nav>
 
 
+<h1 class="title">BAD ROADS</h1>
+
+<script>{{#if user}}
+swal({
+  title: "You are Logged In! ✅",
+  text: "Now you can upload the bad roads!",
+  icon: "success",
+  button: "👍🏻",
+});
+{{/if}}
+
+var x=0;
+
+{{#unless user}}
+if(x==0){
+swal({ title: "You are not logged in! ❗❓",
+text: "You must be logged inorder to upload the bad roads!",
+type: "Warning"}).then(okay => {
+if (okay) {
+window.location.href = "./api/login";
+}
+});
+x++;
+}
 
 
-  {{{flash}}}
+{{/unless}}
+
+
+</script>
+
 
 </body>
 </html>

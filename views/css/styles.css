@@ -1,14 +1,16 @@
-body { background-image:url('/images/kr.gif'); background-repeat:repeat; }
+
+
+body { background-image:url('/images/calm.gif'); background-repeat:repeat; }
 
 h1{
-  color:burlywood;
+  color:brown;
 }
 h2{
-  color:aquamarine;
+  color:rgb(182, 85, 212);
 }
 
 h3{
-  color:azure;
+  color:darkgrey;
 }
 
 h4{
@@ -16,7 +18,7 @@ h4{
 }
 
 p{
-  color:peachpuff;
+  color:greenyellow;
 }
 
 img{
@@ -47,4 +49,16 @@ img{
 
 .inl{
  display: inline;
+}
+
+
+.title{
+  font-family: 'Pacifico', cursive;
+  font-size:100px;
+}
+
+
+.sty{
+  font-family: 'Pacifico', cursive;
+  font-size:35px;
 }

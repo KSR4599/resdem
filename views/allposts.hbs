@@ -14,12 +14,10 @@
       bottom: 0px;
       width: 100%;
     }
-    div {
-	width: 40%;
-	padding: 20px;
-	display: inline-block;
-}
+
     </style>
+
+
 
 <!--
 <script>
@@ -48,10 +46,12 @@ document.getElementById("demo").innerHTML = text;
 -->
 
 <!-- user0 -->
+<div style="width:1000px;">
+
 <h3>{{u.[0].username}}</h3>
 <div>
 <h2>{{{u.[0].services.[0].description}}}</h2>
-<img src="/images/badpics/{{ u.[0].services.[0].badpic }}" alt=""/>
+<img  width="200px" height="100px" src="/images/badpics/{{ u.[0].services.[0].badpic }}" alt=""/>
 </div>
 
 <div>
@@ -90,7 +90,7 @@ document.getElementById("demo").innerHTML = text;
 <h2>{{{u.[0].services.[9].description}}}</h2>
 <img src="/images/badpics/{{ u.[0].services.[9].badpic }}" alt=""/>
 </div>
-
+</div>
 
 <!-- user1 -->
 <h3>{{u.[1].username}}</h3>

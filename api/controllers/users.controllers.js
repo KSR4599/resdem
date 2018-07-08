@@ -118,7 +118,7 @@ const output=`
 let mailOptions = {
     from: '"KSR🔥" <killershell9@gmail.com>', // sender address
     to: 'ksreddy4599@gmail.com', // list of receivers
-    subject: 'We have received a query request for Askss Website', // Subject line
+    subject: 'We have received a query request for BadRoads!', // Subject line
     text: 'Hello', // plain text body
     html: output // html body
 };

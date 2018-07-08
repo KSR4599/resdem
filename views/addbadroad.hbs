@@ -6,12 +6,23 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
 <script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+
+
+<style>
+.hh{
+font-family: 'Bungee Inline', cursive;
+}
+</style>
+
 </head>
 <body>
 
 <script src="js\jquery.min.js"> </script>
   <script src="js\popper.min.js"> </script>
  <script src="js\bootstrap.min.js"> </script>
+
 
 
 
@@ -24,13 +35,13 @@
    <div class="collapse navbar-collapse" id="navbarColor02">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-         <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
        </li>
        <!--<li class="nav-item">
          <a class="nav-link" href="post.html">Post a Website</a>
        </li> -->
        <li class="nav-item">
-         <a class="nav-link" href="/api/allbadroads">All Bad Roads</a>
+         <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
        </li>
 
  {{#unless user}}
@@ -69,15 +80,15 @@
    </div>
  </nav>
 
-<h1>Enter the location of the Bad Road:-</h1>
+<h1 class="hh">Enter the location of the Bad Road:-</h1>
 
 <div class="container">
-  <h2 id="text-center">Enter Location:-</h2>
+  <h2 id="text-center" class="hh">Enter Location:-</h2>
 
   <form id="location-form">
     <input type="text" id="location" class="form-control form-control-lg" />
     <br />
-    <button type="submit" class="btn btn-primary btn-block">Location Details</button>
+    <button type="submit" class="btn btn-primary btn-block" class="hh">Location Details</button>
   </form>
 
     <div class="card-block" id="formatted-address"></div>
@@ -174,9 +185,9 @@ document.getElementById('lng').value=lng;
 <input type="hidden" id="location" name="location" value=""/>
 <input type="hidden" id="lat" name="lat" value="" />
 <input type="hidden" id="lng" name="lng" value="" />
-<h2>Description:-</h2> <textarea rows="5" cols="150" name="description" class="descrip"></textarea>
+<h2 class="hh">Description:-</h2> <textarea rows="5" cols="150" name="description" class="descrip"></textarea>
 <br />
-<h2>Upload image:-</h2> <input type="file" name="badpic" />
+<h2 class="hh">Upload image:-</h2> <input type="file" name="badpic" />
 <br />
 
 <br /><br /><br /><br />

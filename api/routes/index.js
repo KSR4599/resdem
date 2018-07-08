@@ -159,8 +159,8 @@ router.post('/uploadtemp1',upload.any(),function(req,res,next){
 //ask routes
 router.get('/logout',function(req,res,next){
   req.logout();
-  req.flash('logout','You have been successfully logged out of your account!',false)
-  res.redirect('/api/login')
+  req.flash('logout','You have been successfully logged out of your account!',false) //for redirecting and flash, we are using modal
+  res.redirect('./login');
 })
 
 router.get('/wronglogin',function(req, res,next){
@@ -171,10 +171,6 @@ router.get('/wronglogin',function(req, res,next){
 
 router.get('/donate',function(req, res,next){
   res.render('donate')
-})
-
-router.get('/allbadroads',function(req, res,next){
-  res.render('allroads')
 })
 
 
@@ -467,7 +463,7 @@ if(password!==password2){
     let mailOptions = {
     from: '"KSR🔥" <killershell9@gmail.com>', // sender address
     to: email, // list of receivers
-    subject: 'Thank you For Registering 🤘'
+    subject: '🚘 Bad Roads Registration Succesful'
 
     };
 
@@ -482,7 +478,8 @@ if(password!==password2){
     });
 
     req.flash('Success:-', 'You are now registered and can Login!',false);
-     res.redirect('/api/');
+    // res.redirect('/api/login');
+    res.render('login',{x:1});
 
 }
 })

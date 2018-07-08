@@ -20,10 +20,78 @@ var hbs  = require('express-handlebars');
 var path= require('path')
 var asy = require("async");
 var passport = require('passport')
- , LocalStrategy = require('passport-local').Strategy;
+ var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 const nodemailer = require('nodemailer')
+
+var googleAuth ={
+  clientID : '201206374840-2bv9ni1c79mhdhnfv0c5lvmi951is56a.apps.googleusercontent.com',
+  clientSecret: 'tnZYDJesYwejGmRS4DQQ4soo',
+  callbackURL : 'http://localhost:3000/api1/google/callback'
+
+}
+
+
+passport.use(new GoogleStrategy({
+clientID:googleAuth.clientID,
+clientSecret:googleAuth.clientSecret,
+callbackURL:googleAuth.callbackURL
+},
+function(accessToken, refreshToken,profile,done){
+  process.nextTick(function(){
+    User.findOne({'google.id':profile.id},function(err,user){
+      if(err)
+        return done(err);
+      if(user)
+       return done(null,user);
+      else {
+
+    var newUser = new User({
+  name:profile.name.familyName,
+  username:profile.displayName,
+  email:profile.emails[0].value,
+  profileimage :'nopic.jpeg'
+
+})
+User.createUser(newUser,function(err, user){
+  if(err) throw err;
+  console.log(user);
+ return done(null,user);
+})
+
+console.log(profile);
+      }
+    })
+  })
+}
+));
+
+
+
+
+
+
+
+router.get('/google',passport.authenticate('google',{ scope: ['profile','email']}));
+
+router.get('/google/callback',
+ passport.authenticate('google',{
+   successRedirect : '/api/profile',
+   failureRedirect: '/'
+ }));
+
+
+
+
+
+
+
+
+
 
 
 router.get('/allposts',function(req,res,next){
@@ -46,4 +114,26 @@ User
     .render('allposts',{u:users})
   }
  })
+})
+
+
+router.get('/allbadroads',function(req, res,next){
+  User
+   .find()
+   .exec(function(err,users){
+     console.log(err)
+     console.log(users)
+      if(err){
+       console.log("Error Finding the users")
+       res
+        .status(500)
+        .josn(err)
+     }else{
+
+     console.log("FOund users", users.length)
+     res
+      .render('allroads',{user:users})
+    }
+   })
+
 })
