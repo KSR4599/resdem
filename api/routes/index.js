@@ -143,6 +143,7 @@ router.get('/temp',function(req,res,next){
   res.render('temp',{id})
 })
 
+
 router.get('/tempp',function(req,res,next){
   res.render('tempp');
 })
@@ -169,7 +170,7 @@ router.get('/wronglogin',function(req, res,next){
 
 
 
-router.get('/donate',function(req, res,next){
+router.get('/donate',ensureAuthenticated,function(req, res,next){
   res.render('donate')
 })
 
@@ -233,7 +234,7 @@ router.post('/uploads',multer(multerConf2).single('badvideo'),function(req, res)
 
 
 
-router.get('/addbadroad',function(req, res,next){
+router.get('/addbadroad', ensureAuthenticated,function(req, res,next){
   res.render('addbadroad')
 })
 

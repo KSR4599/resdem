@@ -1,6 +1,6 @@
 
 
-body { background-image:url('/images/calm.gif'); background-repeat:repeat; }
+body { background-image:url('/images/wave.gif'); background-repeat:repeat; }
 
 h1{
   color:brown;
@@ -22,8 +22,8 @@ p{
 }
 
 img{
-  height:300px;
-  width:420px;
+  height:320px;
+  width:440px;
 }
 
 
@@ -43,7 +43,7 @@ img{
 
 .descrip{
   font-family: 'Acme', sans-serif;
-  font-size: 15px;
+font-size: 15px;
 }
 
 
@@ -59,6 +59,6 @@ img{
 
 
 .sty{
-  font-family: 'Pacifico', cursive;
+font-family: 'Montserrat Alternates', sans-serif;
   font-size:35px;
 }

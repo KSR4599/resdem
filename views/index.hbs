@@ -7,8 +7,28 @@
 <link href="/css/styles.css" rel="stylesheet" >
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Chonburi" rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b4224383cd9e600119c77aa&product=sticky-share-buttons' async='async'></script>
+
+<style>
+.im1{
+  height: 30%;
+      width: 30%;
+}
+
+.im2{
+  height: 50%;
+  width: 100%;
+}
+
+.im3{
+  height: 30%;
+  width: 60%;
+}
+
+</style>
 
 
 </head>
@@ -19,7 +39,7 @@
  <script src="js/bootstrap.min.js"> </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="index.html" style="font-family: 'Berkshire Swash', cursive;color:rgb(215, 64, 9);">Bad Roads</a>
+   <a class="navbar-brand" href="/api" style="font-family: 'Berkshire Swash', cursive;color:rgb(215, 64, 9);">Bad Roads</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
@@ -27,7 +47,7 @@
    <div class="collapse navbar-collapse" id="navbarColor02">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+         <a class="nav-link" href="/api">Home <span class="sr-only">(current)</span></a>
        </li>
        <!--<li class="nav-item">
          <a class="nav-link" href="post.html">Post a Website</a>
@@ -72,9 +92,6 @@
    </div>
  </nav>
 
-
-<h1 class="title">BAD ROADS</h1>
-
 <script>{{#if user}}
 swal({
   title: "You are Logged In! ✅",
@@ -86,6 +103,7 @@ swal({
 
 var x=0;
 
+/*
 {{#unless user}}
 if(x==0){
 swal({ title: "You are not logged in! ❗❓",
@@ -97,13 +115,33 @@ window.location.href = "./api/login";
 });
 x++;
 }
-
-
 {{/unless}}
-
+*/
 
 </script>
 
+<div class="sharethis-inline-share-buttons"></div>
+<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/144852/script.js');
+</script>
+
+<div align="center">
+  <img src="/images/logo.png" />
+</div>
+
+<div align="center">
+  <img src="/images/px2.png" class="im2"/>
+</div>
+
+<div align="center">
+  <img src="/images/px1.png" class="im2" />
+</div>
+
+<div align="center">
+  <img src="/images/px3.png" class="im3" />
+</div>
 
 </body>
 </html>

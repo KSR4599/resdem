@@ -62,8 +62,44 @@ function(accessToken, refreshToken,profile,done){
 User.createUser(newUser,function(err, user){
   if(err) throw err;
   console.log(user);
+
+  //nodemailer
+  let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+          user: 'killershell9@gmail.com', // generated ethereal user
+          pass:  'KSRKILL459945'// generated ethereal password
+      },
+      tls:{
+        rejectUnauthorized:false
+      }
+  });
+
+  let mailOptions = {
+  from: '"KSR🔥" <killershell9@gmail.com>', // sender address
+  to: profile.emails[0].value, // list of receivers
+  subject: '🚘 Bad Roads Registration Succesful'
+
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+  });
+
+
+
+
  return done(null,user);
 })
+
 
 console.log(profile);
       }
@@ -134,7 +170,7 @@ router.get('/allbadroads',function(req, res,next){
 
      console.log("FOund users", users.length)
      res
-      .render('allroads',{user:users})
+      .render('allroads',{userx:users})
     }
    })
 
