@@ -4,7 +4,8 @@ var bcrypt=require('bcryptjs')
 var serviceSchema = new mongoose.Schema({
   description:[String],
   badpic:[String],
-  location:[Number]
+  location:[Number],
+  status:[String]
 })
 
 

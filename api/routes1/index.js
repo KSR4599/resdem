@@ -80,7 +80,8 @@ User.createUser(newUser,function(err, user){
   let mailOptions = {
   from: '"KSR🔥" <killershell9@gmail.com>', // sender address
   to: profile.emails[0].value, // list of receivers
-  subject: '🚘 Bad Roads Registration Succesful'
+  subject: '🚘 Bad Roads Registration Succesful',
+    html: '<p>Thankyou for registering with us! Now you can login with your google account and Start uploading the bad roads!😎</p>'
 
   };
 

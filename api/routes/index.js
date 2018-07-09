@@ -247,7 +247,8 @@ var _addService = function (req, res, road) {
     description :  req.body.description,
     badpic: badpic,
     //badvideo:req.body.badvideo,
-    location:[ req.body.lat, req.body.lng]
+    location:[ req.body.lat, req.body.lng],
+    status:'queued'
   });
 
   road.save(function(err, roadUpdated) {
@@ -463,7 +464,8 @@ if(password!==password2){
     let mailOptions = {
     from: '"KSR🔥" <killershell9@gmail.com>', // sender address
     to: email, // list of receivers
-    subject: '🚘 Bad Roads Registration Succesful'
+    subject: '🚘 Bad Roads Registration Succesful',
+    html: '<p>Thankyou for registering with us! Now you can login to your account and Start uploading the bad roads!😎</p>'
 
     };
 
