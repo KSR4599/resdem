@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
-
+<link href="/css/styles2.css" rel="stylesheet" >
 <style>
 .loggo{
 height: 1%;
@@ -75,12 +75,156 @@ height: 1%;
    </div>
  </nav>
 
-<div align="center">
-<h2>Your Profile:-</h2>
-<img src="/images/profilepics/{{pic}}"/>
-<h3>Username:-</h3> <h4>{{user.username}}</h4>
-<h3>name:-</h3> <h4>{{user.name}}</h4>
-<h3>Email:-</h3> <h4>{{user.email}}</h4>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="style.css" >
+
+
+ <div class="container">
+     <div class="row profile">
+ 		<div class="col-md-3">
+ 			<div class="profile-sidebar">
+ 				<!-- SIDEBAR USERPIC -->
+ 				<div class="profile-userpic">
+ 					<img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
+ 				</div>
+ 				<!-- END SIDEBAR USERPIC -->
+
+
+ 				<!-- SIDEBAR USER TITLE -->
+ 				<div class="profile-usertitle">
+ 					<div class="profile-usertitle-name">
+ 						Marcopolo
+ 					</div>
+ 					<div class="profile-usertitle-job">
+ 					<div class="row">
+ 					    <div class="col ml-1">
+                             <a href="#"> Posts</a>
+                         </div>
+                         <div class="col">
+                             <a href="#">Following</a>
+                         </div>
+ 					        <div class="col mr-2">
+                                 <a href="#">Followers</a>
+                         </div>
+
+ 					</div>
+ 					<div class="row">
+                     <div class="col ml-1">
+ 					        86
+                         </div>
+                         <div class="col">
+ 					        25
+                         </div>
+ 					        <div class="col mr-2">
+ 					        115
+                         </div>
+
+ 					</div>
+ 					</div>
+ 				</div>
+ 				<!-- END SIDEBAR USER TITLE -->
+ 				<!-- SIDEBAR BUTTONS -->
+ 				<div class="profile-userbuttons">
+ 					<button type="button" class="btn btn-success btn-sm">Follow</button>
+ 					<button type="button" class="btn btn-danger btn-sm">Message</button>
+ 				</div>
+ 				<!-- END SIDEBAR BUTTONS -->
+ 				<!-- SIDEBAR MENU -->
+ 				<div class="profile-usermenu">
+ 					<ul class="sidebar-navnav">
+ 						<li>
+ 							<a href="#">
+ 							<i class="fas fa-map-marked-alt"></i>
+ 							All Bad Roads</a>
+ 						</li>
+ 						<li>
+ 							<a href="#">
+ 							<i class="fas fa-cog"></i>
+ 							Account Settings </a>
+ 						</li>
+ 						<li>
+ 							<a href="#" target="_blank">
+ 							<i class="fas fa-user-edit"></i>
+ 							Edit </a>
+ 						</li >
+ 						<li >
+ 							<a href="#">
+ 							<i class="fas fa-info-circle" ></i>
+ 							Help </a>
+ 						</li>
+ 					</ul>
+ 				</div>
+ 				<!-- END MENU -->
+ 			</div>
+ 		</div>
+ 		<div class="col-md-9">
+             <div class="profile-content">
+ 			   user posts are seen here
+
+         <!-- disqus -->
+         <div id="disqus_thread" class="bottom"></div>
+
+          <script>
+
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://badroads.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+         <!-- end of disqus -->
+
+
+             </div>
+ 		</div>
+    <div class="profile-content">
+user posts are seen here
+
+<!-- disqus -->
+<div id="disqus_thread" class="bottom"></div>
+
+<!-- end of disqus -->
+
+
+    </div>
+</div>
+
+
+
+
+ 	</div>
+ </div>
+ <!--UPLOAD BUTTON--->
+ <div class="mono">
+ <button type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
+ </div>
+ <!--uPLOAD BUTTON ENDS-->
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+
 </div>
 </body>
 </html>

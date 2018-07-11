@@ -62,3 +62,40 @@ font-size: 15px;
 font-family: 'Montserrat Alternates', sans-serif;
   font-size:35px;
 }
+
+
+
+/*button*/
+
+.mono{
+    position: relative;
+    left: 140px;
+    top:450px;
+
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-circle {
+    position: fixed;
+    width: 30px;
+    height: 30spx;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+.btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+}
