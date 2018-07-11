@@ -148,9 +148,7 @@ router.get('/tempp',function(req,res,next){
   res.render('tempp');
 })
 
-router.get('/uploadtemp',function(req,res,next){
-  res.render('tempp');
-})
+
 
 router.post('/uploadtemp1',upload.any(),function(req,res,next){
   res.render('tempp');
@@ -271,6 +269,7 @@ var _addService = function (req, res, road) {
 router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,next){
 
   var user=req.user;
+  user.uploads=parseInt(user.uploads+1,10);
   var id=user._id;
   var lat=req.body.lat;
   var lng=req.body.lng;
@@ -405,6 +404,8 @@ router.post('/register',multer(multerConf).single('profileimage'),function(req, 
   var username=req.body.username;
   var password=req.body.password;
   var password2=req.body.password2;
+  var uploads=parseInt(0,10);
+
 
   User.findOne({ 'email': req.body.email}, function(err, user) {
     if(user){
@@ -438,7 +439,8 @@ if(password!==password2){
       name: name,
       email:email,
       password:password,
-      profileimage:profileimage
+      profileimage:profileimage,
+      uploads:uploads
     })
     User.createUser(newUser,function(err, user){
       if(err) throw err;

@@ -176,3 +176,32 @@ router.get('/allbadroads',function(req, res,next){
    })
 
 })
+
+router.get('/temp',function(req,res,next){
+
+var a=[];
+var i;
+  for(i = 0; i < 20; i++) {
+     a[i]=i;
+  }
+
+  User
+   .find()
+   .select('services.description')
+   .exec(function(err,users){
+     console.log(err)
+     console.log(users)
+      if(err){
+       console.log("Error Finding the users")
+       res
+        .status(500)
+        .josn(err)
+     }else{
+
+     console.log("FOund users", users.length)
+     res
+      .render('temp',{u:users,x:a,y:0})
+    }
+   })
+
+})

@@ -29,6 +29,10 @@ var userSchema= new mongoose.Schema({
         type:String
     },
 
+    uploads:{
+      type:Number
+    },
+
     services:[serviceSchema],
     google :{
       id: String,

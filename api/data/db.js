@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var dburl = 'mongodb://localhost:27017/asksdata';
 
-mongoose.connect(dburl)
+mongoose.connect(dburl,{ useNewUrlParser: true })
 
 mongoose.connection.on('connected',function(){
   console.log('Mongoose connected to :-'+ dburl)
