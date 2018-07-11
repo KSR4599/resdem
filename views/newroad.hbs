@@ -1,128 +1,97 @@
-<html>
 
+
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/css/bootstrap.min.css" rel="stylesheet" >
-<link href="/css/styles.css" rel="stylesheet">
-<style>
-.loggo{
-height: 1%;
- width:100%;
+	<title>Map</title>
+
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="/css/styles.css" rel="stylesheet" >
+
+  <style>
+  .loggo{
+  height: 1%;
+   width:100%;
+  }
+  </style>
+	<style>
+#myMap {
+   height: 700px;
+   width: 100%;
 }
 </style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&sensor=false">
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+<script type="text/javascript">
+var map;
+var marker;
+var myLatlng = new google.maps.LatLng({{lat}},{{lng}});
+var geocoder = new google.maps.Geocoder();
+var infowindow = new google.maps.InfoWindow();
+function initialize(){
+var mapOptions = {
+zoom: 18,
+center: myLatlng,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+map = new google.maps.Map(document.getElementById("myMap"), mapOptions);
+var image = '../images/pot.png';
+
+marker = new google.maps.Marker({
+map: map,
+position: myLatlng,
+draggable: true,
+icon:image
+});
+
+geocoder.geocode({'latLng': myLatlng }, function(results, status) {
+if (status == google.maps.GeocoderStatus.OK) {
+if (results[0]) {
+$('#latitude,#longitude').show();
+$('#address').val(results[0].formatted_address);
+$('#latitude').val(marker.getPosition().lat());
+$('#longitude').val(marker.getPosition().lng());
+infowindow.setContent(results[0].formatted_address);
+infowindow.open(map, marker);
+}
+}
+});
+
+google.maps.event.addListener(marker, 'dragend', function() {
+
+geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
+if (status == google.maps.GeocoderStatus.OK) {
+if (results[0]) {
+$('#address').val(results[0].formatted_address);
+$('#latitude').val(marker.getPosition().lat());
+$('#longitude').val(marker.getPosition().lng());
+infowindow.setContent(results[0].formatted_address);
+infowindow.open(map, marker);
+}
+}
+});
+});
+
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 </head>
 <body>
+<div id="myMap"></div>
+<form method="post" action="/api1/locc">
 
-<script src="jquery/jquery-3.3.1.min.js"> </script>
-  <script src="js/popper.min.js"> </script>
- <script src="js/bootstrap.min.js"> </script>
+<input id="address" type="text" style="width:600px;"/><br/>
+<input type="text" id="description" value="{{description}}" name="description" placeholder="description"/>
+<input type="text" id="badpic" value="{{badpic}}" name="badpic" placeholder="badpic"/>
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="/api">
-     <img src="/images/loggo.png"/ class="loggo">
-   </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/api">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <!--<li class="nav-item">
-          <a class="nav-link" href="post.html">Post a Website</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
-        </li>
-
-  {{#unless user}}
-        <li class="nav-item">
-          <a class="nav-link" href="/api/register">Sign-up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/api/login">Login</a>
-        </li>
-  {{/unless}}
-  {{#if user}}
-  <li class="nav-item">
-  <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/api/profile">Profile</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/api/uploads">My uploads</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/api/contact">Contact Us</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/api/donate">Donate Us</a>
-    </li>
-  {{/if}}
-    </ul>
-      <form class="form-inline my-2 my-lg-0">
-        {{#if user}}
-       <a class="nav-link disabled" href="/api/logout">Logout</a>
-       {{/if}}
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
-
-<h1> Your Bad Road Location:-</h1>
-<div id="map"></div>
-
-<script>
-
-function initMap(){
-  // Map Options
-  var options={
-    zoom:10,
-    center:{lat :17.3850, lng: 78.4867 }
-  }
-  //New Map
-  var map=new google.maps.Map(document.getElementById('map'),options);
-
-var image = '../images/pot.png';
-
-
-//addMarker({lat:17.3916,lng:78.4401})
-addMarker({lat: {{{lat}}} , lng: {{{lng}}} })
-
-addMarker()
-
-
-function addMarker(coords){
-  var marker = new google.maps.Marker({
-    position:coords,
-    map:map,
-    icon:image
-
-})
-
-}
-
-}
-
-</script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
-
-<div align="center">
-  <form action="/api/uploads" method="get"  enctype="multipart/form-data">
-    <br />
-
-  <button type="submit" class="btn btn-outline-warning">Confirm</button>
-  </form>
-</div>
-
-
-
+<input type="text" id="latitude" name="lat" placeholder="Latitude"/>
+<input type="text" id="longitude" name="lng" placeholder="Longitude"/>
+<input type="submit" />
+</form>
 </body>
 </html>

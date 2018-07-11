@@ -138,9 +138,8 @@ function ensureAuthenticated(req,res,next){
 }
 
 router.get('/temp',function(req,res,next){
-  var user=req.user;
-  var id=user._id;
-  res.render('temp',{id})
+
+  res.render('temp')
 })
 
 
@@ -183,13 +182,6 @@ router.post('/uploads',multer(multerConf2).single('badvideo'),function(req, res)
   var id=user._id;
 
 
-  if(req.file){
-    console.log('Bad vid Uploaded');
-    var badvideo = req.file.filename;
-  }else{
-    console.log('No bad vid Uploaded');
-    var badvideo ='novid.mp4';
-  }
 
 
   User
@@ -240,26 +232,19 @@ router.get('/addbadroad', ensureAuthenticated,function(req, res,next){
 var _addService = function (req, res, road) {
   var lat=req.body.lat;
   var lng=req.body.lng;
+  var description=req.body.description;
   var badpic = req.file.filename;
+  res.render('newroad',{lat:lat,lng:lng,badpic:badpic,description:description})
+  /*
   road.services.push({
     description :  req.body.description,
     badpic: badpic,
     //badvideo:req.body.badvideo,
-    location:[ req.body.lat, req.body.lng],
+    //ocation:[ req.body.lat, req.body.lng],
     status:'queued'
   });
+*/
 
-  road.save(function(err, roadUpdated) {
-    if (err) {
-      res
-        .status(500)
-        .json(err);
-    } else {
-      res
-        .status(200)
-        .render('newroad',{lat:lat,lng:lng})
-    }
-  });
 
 };
 
@@ -269,7 +254,6 @@ var _addService = function (req, res, road) {
 router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,next){
 
   var user=req.user;
-  user.uploads=parseInt(user.uploads+1,10);
   var id=user._id;
   var lat=req.body.lat;
   var lng=req.body.lng;
@@ -306,7 +290,7 @@ router.post('/newroad',multer(multerConf1).single('badpic'),function(req, res,ne
         };
       }
       if (doc) {
-          _addService(req, res, doc);
+           _addService(req, res, doc);
       } else {
         req.flash('error','Oops! Something went wrong');
         res

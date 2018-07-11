@@ -205,3 +205,82 @@ var i;
    })
 
 })
+
+
+router.post('/locc',function(req,res,next){
+  var user=req.user;
+  var id=user._id;
+  var lat=req.body.lat;
+  var lng=req.body.lng;
+  var description=req.body.description;
+    var badpic=req.body.badpic;
+
+
+
+
+  User
+    .findById(id)
+    .select('services')
+    .exec(function(err, doc) {
+      var response = {
+        status : 200,
+        message : doc
+      };
+      if (err) {
+        console.log("Error finding service");
+        response.status = 500;
+        response.message = err;
+      } else if(!doc) {
+        console.log("serviceid not found in database", id);
+        response.status = 404;
+        response.message = {
+          "message" : "Service ID not found " + id
+        };
+      }
+      if (doc) {
+          _addService(req, res, doc);
+      } else {
+        req.flash('error','Oops! Something went wrong');
+        res
+         .render('err')
+     }
+    });
+
+})
+
+//Code for servicesAddOne
+var _addService = function (req, res, road) {
+  var user=req.user;
+  var id=user._id;
+  var lat=req.body.lat;
+  var lng=req.body.lng;
+  var description=req.body.description;
+  var badpic=req.body.badpic;
+
+  console.log(badpic);
+  console.log(description);
+
+
+  road.services.push({
+
+
+description:description,
+  badpic:badpic,
+  location:[ req.body.lat, req.body.lng],
+  status:'queued'
+
+  });
+
+  road.save(function(err, roadUpdated) {
+    if (err) {
+      res
+        .status(500)
+        .json(err);
+    } else {
+      res
+        .status(200)
+        .render('index')
+    }
+  });
+
+};
