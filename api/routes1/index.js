@@ -135,47 +135,101 @@ router.get('/google/callback',
 
 router.get('/allposts',function(req,res,next){
 //var user=req.user;
+User.find({},'-_id',function(err, users) {
+  users=JSON.stringify(users);
+/*
+  User.aggregate([
+    {
+      "$project": {
+        "_id": 0,
+        "DescriptionArray": {
+          "$reduce": {
+            "input": "$services.description",
+            "initialValue": [],
+            "in": {
+              "$concatArrays": [
+                "$$this",
+                "$$value"
+              ]
+            }
+          }
+        },
+        "PicArray": {
+          "$reduce": {
+            "input": "$services.badpic",
+            "initialValue": [],
+            "in": {
+              "$concatArrays": [
+                "$$this",
+                "$$value"
+              ]
+            }
+          }
+        }
+       }
+    }
+  ]
+*/
+User.aggregate([
+  {"$project":{
+    "array":{
+      "$map":{
+        "input":{"$range":[0,{"$size":"$services.description"}]},
+        "as":"ix",
+        "in":{
+         "DescriptionArray":{"$arrayElemAt":["$services.description","$$ix"]},
+         "PicArray":{"$arrayElemAt":["$services.badpic","$$ix"]}}
+      }
+    }
+  }},
+  {"$unwind":"$array"},
+  {"$replaceRoot":{"newRoot":"$array"}}
+],function(err, output){
+    console.log(output);
 
-User
- .find()
- .exec(function(err,users){
-   console.log(err)
-   console.log(users)
-    if(err){
-     console.log("Error Finding the users")
-     res
-      .status(500)
-      .josn(err)
-   }else{
+    res.render('allpost1',{output:output})
+  })
 
-   console.log("FOund users", users.length)
-   res
-    .render('allposts',{u:users})
-  }
- })
+})
+
 })
 
 
 router.get('/allbadroads',function(req, res,next){
-  User
-   .find()
-   .exec(function(err,users){
-     console.log(err)
-     console.log(users)
-      if(err){
-       console.log("Error Finding the users")
-       res
-        .status(500)
-        .josn(err)
-     }else{
 
-     console.log("FOund users", users.length)
-     res
-      .render('allroads',{userx:users})
+
+User.find({}, '-_id services.location', function(err, users) {
+  users=JSON.stringify(users);
+
+  User.aggregate([
+  {
+    "$project": {
+      "_id": 0,
+      "LocationArray": {
+        "$reduce": {
+          "input": "$services.location",
+          "initialValue": [],
+          "in": {
+            "$concatArrays": [
+              "$$this",
+              "$$value"
+            ]
+          }
+        }
+      }
     }
-   })
+  }
+],function(err, locc){
+
+    console.log(locc);
+    res.render('allroads1',{users:locc})
+  })
 
 })
+
+})
+
+
 
 router.get('/temp',function(req,res,next){
 
@@ -277,9 +331,7 @@ description:description,
         .status(500)
         .json(err);
     } else {
-      res
-        .status(200)
-        .render('index')
+      res.redirect('/api')
     }
   });
 

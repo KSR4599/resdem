@@ -34,10 +34,38 @@ res.render('login')
 
 module.exports.getProfile = function(req, res){
   var user=req.user;
+    var id=user._id;
 
-res.render('profile',{user,pic:user.profileimage})
 
-}
+User
+  .findById(id)
+  .select('services.description')                        // User.find({_id: userId },{'library.story'}).then(function(user){
+  .exec(function(err,doc){
+    var response = {
+         status : 200,
+         message : []
+       };
+       if (err) {
+         console.log("Error finding service");
+         response.status = 500;
+         response.message = err;
+       } else if(!doc) {
+         console.log("User id not found in database", id);
+         response.status = 404;
+         response.message = {
+           "message" : "User ID not found " + id
+         };
+       } else {
+         response.message = doc.services ? doc.services : [];
+       }
+       console.log(user.services)
+       res
+         .status(response.status)
+         .render('profile',{des:doc,user:user.services,user1:user})
+     });
+ };
+
+
 
 
 module.exports.getContact = function(req, res){

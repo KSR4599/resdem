@@ -89,7 +89,7 @@ height: 1%;
  			<div class="profile-sidebar">
  				<!-- SIDEBAR USERPIC -->
  				<div class="profile-userpic">
- 					<img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
+ 					<img src="../images/profilepics/{{user1.profileimage}}" class="img-responsive" alt="">
  				</div>
  				<!-- END SIDEBAR USERPIC -->
 
@@ -97,7 +97,7 @@ height: 1%;
  				<!-- SIDEBAR USER TITLE -->
  				<div class="profile-usertitle">
  					<div class="profile-usertitle-name">
- 						Marcopolo
+ 						{{user.username}}
  					</div>
  					<div class="profile-usertitle-job">
  					<div class="row">
@@ -163,7 +163,20 @@ height: 1%;
  		</div>
  		<div class="col-md-9">
              <div class="profile-content">
- 			   user posts are seen here
+
+          <h2>Your Uploads:-</h2>
+
+               {{# each user}}
+                <h4>
+                  {{this.description}}
+                  <br />
+                  <img src="../images/badpics/{{this.badpic}}" class="img-responsive" alt="">
+                </h4>
+
+               {{/each}}
+
+
+
 
          <!-- disqus -->
          <div id="disqus_thread" class="bottom"></div>
@@ -193,23 +206,9 @@ height: 1%;
 
              </div>
  		</div>
-    <div class="profile-content">
-user posts are seen here
-
-<!-- disqus -->
-<div id="disqus_thread" class="bottom"></div>
-
-<!-- end of disqus -->
-
-
-    </div>
-</div>
 
 
 
-
- 	</div>
- </div>
  <!--UPLOAD BUTTON--->
  <div class="mono">
  <button type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
