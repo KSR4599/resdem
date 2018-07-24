@@ -1,24 +1,28 @@
 
 
-body { background-image:url('/images/cqq.gif'); background-repeat:repeat; }
+body { background-image:url('/images/g.gif'); background-repeat:repeat; background-attachment: fixed;}
 
 h1{
   color:brown;
 }
 h2{
-  color:rgb(182, 85, 212);
+  color:rgba(157, 196, 41, 0.85);
 }
 
 h3{
-  color:darkgrey;
+  color:darkslateblue;
 }
 
 h4{
-  color:yellowgreen;
+  color:saddlebrown;
+}
+
+.floatright {
+    float:right;
 }
 
 p{
-  color:greenyellow;
+  color:saddlebrown;
 }
 
 img{
@@ -31,7 +35,7 @@ img{
   color: antiquewhite; }
 
   .cc {
-    color:greenyellow;
+    color:saddlebrown;
 
     }
 

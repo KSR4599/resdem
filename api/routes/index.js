@@ -307,8 +307,41 @@ router.post('/charge',function(req, res,next){
 })
 
 router.get('/',function(req, res,next){
-  res.render('index')
+
+/*
+  User.aggregate([
+    {"$project":{
+      "array":{
+        "$map":{
+          "input":{"$range":[0,{"$size":"$services.description"}]},
+          "as":"ix",
+          "in":{
+           "DescriptionArray":{"$arrayElemAt":["$services.description","$$ix"]},
+           "PicArray":{"$arrayElemAt":["$services.badpic","$$ix"]}}
+        }
+      }
+    }},
+    {"$unwind":"$array"},
+    {"$replaceRoot":{"newRoot":"$array"}}
+  ],function(err, output){
+      console.log(output);
+
+      res.render('index',{output:output})
+    })
+
+  */
+  User
+  .find()
+  .exec(function(err,users){
+    if(err){
+      console.log(err);
+    }else{
+      res.render('index',{users:users});
+    }
+
+  })
 })
+
 
 router
   .route('/asks')

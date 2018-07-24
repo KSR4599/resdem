@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
+<link rel="stylesheet" type="text/css" href="indexcss.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada" rel="stylesheet">
 
 <!-- for disqus -->
@@ -35,62 +36,58 @@ height: 1%;
 
 
 
-
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="/api">
-     <img src="/images/loggo.png"/ class="loggo">
-   </a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+ <div class="container">
+<a class="navbar-brand" href="#">Bad Roads</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-   <div class="collapse navbar-collapse" id="navbarColor02">
-     <ul class="navbar-nav mr-auto">
-       <li class="nav-item active">
-         <a class="nav-link" href="/api">Home <span class="sr-only">(current)</span></a>
-       </li>
-       <!--<li class="nav-item">
-         <a class="nav-link" href="post.html">Post a Website</a>
-       </li> -->
-       <li class="nav-item">
-         <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
-       </li>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
- {{#unless user}}
-       <li class="nav-item">
-         <a class="nav-link" href="/api/register">Sign-up</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="/api/login">Login</a>
-       </li>
- {{/unless}}
- {{#if user}}
- <li class="nav-item">
- <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
- </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/profile">Profile</a>
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/uploads">My uploads</a>
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/contact">Contact Us</a>
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/donate">Donate Us</a>
-   </li>
- {{/if}}
-   </ul>
-     <form class="form-inline my-2 my-lg-0">
-       {{#if user}}
-      <a class="nav-link disabled" href="/api/logout">Logout</a>
-      {{/if}}
-       <input class="form-control mr-sm-2" type="text" placeholder="Search">
-       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-     </form>
-   </div>
- </nav>
+    <li class="nav-item active">
+      <a class="nav-link mx-2" href="/api">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link mx-2 " href="/api1/about">About</a>
+    </li>
+    {{#unless user}}
+    <li class="nav-item">
+      <a class="nav-link mx-2" href="/api/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link mx-2" href="/api/login">Login</a>
+    </li>
+    {{/unless}}
+
+    {{#if user}}
+    <li class="nav-item">
+      <a class="nav-link mx-2" href="/api/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link mx-2" href="/api/contact">Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link mx-2" href="/api/donate">Donate Us</a>
+    </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link mx-2" href="/api/logout">Logout</a>
+  </li>
+  {{/if}}
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+
+     </div>
+
+</nav>
+
 
 
 <h1 class="hh"> All the Bad Roads!</h1>

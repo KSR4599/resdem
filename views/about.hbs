@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+<link rel="stylesheet" type="text/css" href="indexcss.css">
+<link href="https://fonts.googleapis.com/css?family=Bangers|Bungee+Inline" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png" />
+<style>
+.loggo{
+height: 1%;
+ width:100%;
+}
+
+.im1{
+  height: 30%;
+      width: 30%;
+}
+
+.im2{
+  height: 50%;
+  width: 100%;
+}
+
+.im3{
+  height: 30%;
+  width: 60%;
+}
+.loggo{
+height: 1%;
+ width:100%;
+}
+
+</style>
+
+</head>
+<body>
+<div align="center">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/api">
+      <img src="/images/loggo.png"/ class="loggo">
+    </a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+     <li class="nav-item active">
+       <a class="nav-link mx-2" href="/api">Home <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link mx-2 " href="/api1/about">About</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link mx-2 " href="/api1/allbadroads">All the bad roads</a>
+     </li>
+     {{#unless user}}
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/register">Register</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/login">Login</a>
+     </li>
+     {{/unless}}
+
+     {{#if user}}
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/profile">Profile</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/contact">Contact Us</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/donate">Donate Us</a>
+     </li>
+
+
+   <li class="nav-item">
+     <a class="nav-link mx-2" href="/api/logout">Logout</a>
+   </li>
+   {{/if}}
+   </ul>
+
+   <div class="floatright">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+   </div>
+
+
+ </div>
+
+      </div>
+
+</nav>
+
+
+<h1 style="font-family: 'Bangers', cursive;">ABOUT US:-</h1>
+<h2 style="font-family: 'Bungee Inline', cursive;">
+  The road transportation is an identifiable route of travel,
+usually surfaced with gravel, asphalt or concrete, and
+supporting land passage by foot or by a number of
+vehicles. The road network is gigantic and one of the
+most frequently used form of transportation. Since roads
+indirectly contribute to the economic growth of the
+country it is extremely essential that the roads are well
+laid out and strong. The website Bad Roads is a
+platform to create awareness of the bad condition of the
+roads.
+</h2>
+
+
+<div align="center">
+  <img src="/images/px2.png" class="im2"/>
+</div>
+
+<div align="center">
+  <img src="/images/px1.png" class="im2" />
+</div>
+
+<div align="center">
+  <img src="/images/px3.png" class="im3" />
+</div>
+
+</body>
+</html>

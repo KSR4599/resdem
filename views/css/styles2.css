@@ -11,6 +11,7 @@ body {
 /* Profile sidebar */
 .profile-sidebar {
   position: relative;
+  top:120px;
   padding: 0px 0 10px 0;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -23,9 +24,9 @@ body {
 
 .profile-userpic img {
   float: none;
-  margin:-10 22 -20 25;
+  padding:0px;
   width: 80%;
-  height: 50%;
+  height: 80%;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   border-radius: 50% !important;
@@ -120,6 +121,7 @@ a{
 
 /* Profile Content */
 .profile-content {
+
   padding: 20px;
   background: #fff;
   min-height: 460px;

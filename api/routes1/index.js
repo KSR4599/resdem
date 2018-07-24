@@ -129,7 +129,9 @@ router.get('/google/callback',
 
 
 
-
+router.get('/about',function(req,res,next){
+res.render('about');
+})
 
 
 
@@ -331,7 +333,7 @@ description:description,
         .status(500)
         .json(err);
     } else {
-      res.redirect('/api')
+      res.redirect('/api/profile')
     }
   });
 

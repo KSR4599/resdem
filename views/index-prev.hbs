@@ -1,0 +1,180 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet" >
+<link href="/css/styles.css" rel="stylesheet" >
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Chonburi" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b4224383cd9e600119c77aa&product=sticky-share-buttons' async='async'></script>
+
+<!--new-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+<!--new end -->
+
+
+
+
+<style>
+.im1{
+  height: 30%;
+      width: 30%;
+}
+
+.im2{
+  height: 50%;
+  width: 100%;
+}
+
+.im3{
+  height: 30%;
+  width: 60%;
+}
+.loggo{
+height: 1%;
+ width:100%;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<script src="jquery/jquery-3.3.1.min.js"> </script>
+  <script src="js/popper.min.js"> </script>
+ <script src="js/bootstrap.min.js"> </script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="/api">
+     <img src="/images/loggo.png"/ class="loggo">
+   </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarColor02">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+         <a class="nav-link" href="/api">Home <span class="sr-only">(current)</span></a>
+       </li>
+       <!--<li class="nav-item">
+         <a class="nav-link" href="post.html">Post a Website</a>
+       </li> -->
+       <li class="nav-item">
+         <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
+       </li>
+
+ {{#unless user}}
+       <li class="nav-item">
+         <a class="nav-link" href="/api/register">Sign-up</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/api/login">Login</a>
+       </li>
+ {{/unless}}
+ {{#if user}}
+ <li class="nav-item">
+ <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
+ </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/profile">Profile</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/uploads">My uploads </a>
+
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/contact">Contact Us</a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="/api/donate">Donate Us</a>
+   </li>
+ {{/if}}
+   </ul>
+     <form class="form-inline my-2 my-lg-0">
+       {{#if user}}
+      <a class="nav-link disabled" href="/api/logout">Logout</a>
+      {{/if}}
+       <input class="form-control mr-sm-2" type="text" placeholder="Search">
+       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+
+<script>{{#if user}}
+swal({
+  title: "You are Logged In! ✅",
+  text: "Now you can upload the bad roads!",
+  icon: "success",
+  button: "👍🏻",
+});
+{{/if}}
+
+var x=0;
+
+/*
+{{#unless user}}
+if(x==0){
+swal({ title: "You are not logged in! ❗❓",
+text: "You must be logged inorder to upload the bad roads!",
+type: "Warning"}).then(okay => {
+if (okay) {
+window.location.href = "./api/login";
+}
+});
+x++;
+}
+{{/unless}}
+*/
+
+</script>
+
+<!--UPLOAD BUTTON--->
+<div class="mono">
+  <a href="/api/addbadroad">
+<button   type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
+</a>
+</div>
+<!--uPLOAD BUTTON ENDS-->
+
+
+<div class="sharethis-inline-share-buttons"></div>
+<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/144852/script.js');
+</script>
+
+<div align="center">
+  <a href="/api">
+  <img src="/images/logo.png" />
+  </a>
+</div>
+
+<div align="center">
+  <img src="/images/px2.png" class="im2"/>
+</div>
+
+<div align="center">
+  <img src="/images/px1.png" class="im2" />
+</div>
+
+<div align="center">
+  <img src="/images/px3.png" class="im3" />
+</div>
+
+
+
+</body>
+</html>

@@ -1,154 +1,134 @@
-<html>
-
-<head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/css/bootstrap.min.css" rel="stylesheet" >
-<link href="/css/styles.css" rel="stylesheet" >
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Chonburi" rel="stylesheet">
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b4224383cd9e600119c77aa&product=sticky-share-buttons' async='async'></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="shortcut icon" type="image/png" href="/images/fav.png" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-<!--new-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="indexcss.css">
+
+
+    <!-- New stuff   -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="lame.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 
-<!--new end -->
+
+    <title>Bad Roads</title>
+    <style>
 
 
 
 
-<style>
-.im1{
-  height: 30%;
-      width: 30%;
+    .loggo{
+    height: 1%;
+     width:100%;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+.image-card{
+  height: 33rem;
+  width: 26.5rem;
+  background: #fff;
+  font-family: Roboto;
+  display: block;
+  position: relative;
+  top: 150px;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.2s ease-in-out;
+  overflow: auto;
 }
 
-.im2{
-  height: 50%;
-  width: 100%;
+
+
+.card{
+    height: 28.5rem;
+    width: 25rem;
+}
+.card-body{
+  height: 5rem;
+
 }
 
-.im3{
-  height: 30%;
-  width: 60%;
+
+.card-img-top{
+    height: 25rem;
+    width: 25rem;
+    position: relative;
+    top: 55px;
+
 }
-.loggo{
-height: 1%;
- width:100%;
+
+
+.media img{
+    width:44px;
+    height:44px;
+    border-radius: 54px;
+    margin-top: 4;
+    margin-right:4;
+    margin-left: 6;
+}
+h6{
+    padding:2px ;
+    margin: 0;
+}
+.media-location{
+    padding: 2px;
 }
 
-</style>
 
 
-</head>
-<body>
+.commentText  {
+    margin:0;
 
-<script src="jquery/jquery-3.3.1.min.js"> </script>
-  <script src="js/popper.min.js"> </script>
- <script src="js/bootstrap.min.js"> </script>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="/api">
-     <img src="/images/loggo.png"/ class="loggo">
-   </a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
-
-   <div class="collapse navbar-collapse" id="navbarColor02">
-     <ul class="navbar-nav mr-auto">
-       <li class="nav-item active">
-         <a class="nav-link" href="/api">Home <span class="sr-only">(current)</span></a>
-       </li>
-       <!--<li class="nav-item">
-         <a class="nav-link" href="post.html">Post a Website</a>
-       </li> -->
-       <li class="nav-item">
-         <a class="nav-link" href="/api1/allbadroads">All Bad Roads</a>
-       </li>
-
- {{#unless user}}
-       <li class="nav-item">
-         <a class="nav-link" href="/api/register">Sign-up</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="/api/login">Login</a>
-       </li>
- {{/unless}}
- {{#if user}}
- <li class="nav-item">
- <a class="nav-link" href="/api/addbadroad">Add a Bad Road</a>
- </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/profile">Profile</a>
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/uploads">My uploads </a>
-
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/contact">Contact Us</a>
-   </li>
-   <li class="nav-item">
-   <a class="nav-link" href="/api/donate">Donate Us</a>
-   </li>
- {{/if}}
-   </ul>
-     <form class="form-inline my-2 my-lg-0">
-       {{#if user}}
-      <a class="nav-link disabled" href="/api/logout">Logout</a>
-      {{/if}}
-       <input class="form-control mr-sm-2" type="text" placeholder="Search">
-       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-     </form>
-   </div>
- </nav>
-
-<script>{{#if user}}
-swal({
-  title: "You are Logged In! ✅",
-  text: "Now you can upload the bad roads!",
-  icon: "success",
-  button: "👍🏻",
-});
-{{/if}}
-
-var x=0;
-
-/*
-{{#unless user}}
-if(x==0){
-swal({ title: "You are not logged in! ❗❓",
-text: "You must be logged inorder to upload the bad roads!",
-type: "Warning"}).then(okay => {
-if (okay) {
-window.location.href = "./api/login";
 }
-});
-x++;
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
 }
-{{/unless}}
-*/
+.actionBox {
+    margin-top: 35;
+    margin-left: -20;
+    width: 25rem;
+    border-top:1px;
+    padding:1.5px;
+
+}
+
+body { background-image:url('/images/drogaz.png'); background-repeat:repeat; background-attachment: fixed;}
+
+    </style>
+
+    <script>{{#if user}}
+    swal({
+      title: "You are Logged In! ✅",
+      text: "Now you can upload the bad roads!",
+      icon: "success",
+      button: "👍🏻",
+    });
+    {{/if}}
 
 </script>
 
-<!--UPLOAD BUTTON--->
-<div class="mono">
-  <a href="/api/addbadroad">
-<button   type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
-</a>
-</div>
-<!--uPLOAD BUTTON ENDS-->
-
-
+<!--
 <div class="sharethis-inline-share-buttons"></div>
 <script>
   (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
@@ -156,23 +136,323 @@ x++;
   })(window, document, '_gscq','script','//widgets.getsitecontrol.com/144852/script.js');
 </script>
 
-<div align="center">
-  <a href="/api">
-  <img src="/images/logo.png" />
-  </a>
+-->
+
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b4220ff3cd9e600119c77a2&product=sticky-share-buttons' async='async'></script>
+
+
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/api">
+        <img src="/images/loggo1.png"/ class="loggo">
+      </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+       <li class="nav-item active">
+         <a class="nav-link mx-2" href="/api">Home <span class="sr-only">(current)</span></a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link mx-2 " href="/api1/about">About</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link mx-2 " href="/api1/allbadroads">All the bad roads</a>
+       </li>
+       {{#unless user}}
+       <li class="nav-item">
+         <a class="nav-link mx-2" href="/api/register">Register</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link mx-2" href="/api/login">Login</a>
+       </li>
+       {{/unless}}
+
+       {{#if user}}
+
+       <li class="nav-item">
+         <a class="nav-link mx-2" href="/api/profile">Profile</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link mx-2" href="/api/contact">Contact Us</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link mx-2" href="/api/donate">Donate Us</a>
+       </li>
+
+
+     <li class="nav-item">
+       <a class="nav-link mx-2" href="/api/logout">Logout</a>
+     </li>
+     {{/if}}
+     </ul>
+     <div class="floatright">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+     </div>
+   </div>
+
+        </div>
+
+   </nav>
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+   <link rel="stylesheet" href="lame.css">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+
+
+   <!---Entire image card------->
+
+
+   <div class="image-card">
+
+   <div class="card" >
+
+     <span class="badge badge-success">{{users.[0].services.[0].status}}</span>
+     <br />
+    <!--username and location---->
+
+    <div class="media">
+     <div class="media-left">
+       <a href="#">
+          <img class="media-object img-responsive" src="/images/profilepics/{{ users.[0].profileimage }}"  alt="...">
+       </a>
+     </div>
+     <div class="media-body">
+
+
+       <h5 class="media-heading"><strong>{{users.[0].username}}</strong></h5>
+
+       <div class="media-location">
+       <a href="/api1/allbadroads">location</a>
+         </div>
+
+     </div>
+
+   </div>
+    <!--username and location ends---->
+
+
+    <!--Image comes here(100px 180px)---->
+  <img class="card-img-top" src="/images/badpics/{{ users.[0].services.[0].badpic }}" alt="Card image cap">
+     <!--Image ends here(100px 180px)---->
+
+     <!--Description and date------->
+     <div class="card-body">
+         <div class="actionBox">
+
+
+
+                   <div class="commentText">
+                       <p class="">
+                         <br /><br />
+
+                    <h3>Description:-</h3>{{users.[0].services.[0].description}}
+                  </p> <span class="date sub-text">on May 20th, 2018</span>
+                       </div>
+
+       </div>
+   </div>
+
+       </div>
+
+   </div>
+   <div class="sharethis-inline-reaction-buttons"></div>
+
+<!-- END -->
+
+
+
+<!---Entire image card------->
+<div class="image-card">
+<div class="card" >
+  <span class="badge badge-warning">{{users.[1].services.[0].status}}</span>
+  <br />
+ <!--username and location---->
+
+ <div class="media">
+  <div class="media-left">
+    <a href="#">
+       <img class="media-object img-responsive" src="/images/profilepics/{{ users.[1].profileimage }}"  alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+
+
+    <h5 class="media-heading"><strong>{{users.[1].username}}</strong></h5>
+
+    <div class="media-location">
+    <a href="/api1/allbadroads">location</a>
+      </div>
+
+  </div>
+
+</div>
+ <!--username and location ends---->
+
+
+
+ <!--Image comes here(100px 180px)---->
+<img class="card-img-top" src="/images/badpics/{{ users.[1].services.[0].badpic }}" alt="Card image cap">
+
+  <!--Image ends here(100px 180px)---->
+
+  <!--Description and date------->
+  <div class="card-body">
+      <div class="actionBox">
+
+
+
+                <div class="commentText">
+                    <p class="">
+                      <br /><br />
+
+                 <h3>Description:-</h3>{{users.[1].services.[0].description}}
+               </p> <span class="date sub-text">on March 6th, 2018</span>
+
+                    </div>
+
+    </div>
 </div>
 
-<div align="center">
-  <img src="/images/px2.png" class="im2"/>
+    </div>
 </div>
 
-<div align="center">
-  <img src="/images/px1.png" class="im2" />
+<!-- END -->
+
+
+
+
+
+<!---Entire image card------->
+<div class="image-card">
+<div class="card" >
+  <span class="badge badge-success">{{users.[1].services.[1].status}}</span>
+  <br />
+
+ <!--username and location---->
+
+ <div class="media">
+  <div class="media-left">
+    <a href="#">
+       <img class="media-object img-responsive" src="/images/profilepics/{{ users.[1].profileimage }}"  alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+
+
+    <h5 class="media-heading"><strong>{{users.[1].username}}</strong></h5>
+
+    <div class="media-location">
+    <a href="/api1/allbadroads">location</a>
+      </div>
+
+  </div>
+
+</div>
+ <!--username and location ends---->
+
+
+ <!--Image comes here(100px 180px)---->
+<img class="card-img-top" src="/images/badpics/{{ users.[1].services.[1].badpic }}" alt="Card image cap">
+  <!--Image ends here(100px 180px)---->
+
+  <!--Description and date------->
+  <div class="card-body">
+      <div class="actionBox">
+
+
+
+                <div class="commentText">
+                    <p class="">
+                      <br /><br />
+
+                 <h3>Description:-</h3>{{users.[1].services.[1].description}}
+               </p> <span class="date sub-text">on June 5th, 2018</span>
+                    </div>
+
+    </div>
 </div>
 
-<div align="center">
-  <img src="/images/px3.png" class="im3" />
+    </div>
 </div>
+
+
+<!-- END -->
+
+
+
+
+
+
+<!---Entire image card------->
+<div class="image-card">
+<div class="card" >
+  <span class="badge badge-info">{{users.[3].services.[0].status}}</span>
+  <br />
+ <!--username and location---->
+
+ <div class="media">
+  <div class="media-left">
+    <a href="#">
+       <img class="media-object img-responsive" src="/images/profilepics/{{ users.[3].profileimage }}"  alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+
+
+    <h5 class="media-heading"><strong>{{users.[3].username}}</strong></h5>
+
+    <div class="media-location">
+    <a href="/api1/allbadroads">location</a>
+      </div>
+
+  </div>
+
+</div>
+ <!--username and location ends---->
+
+
+ <!--Image comes here(100px 180px)---->
+<img class="card-img-top" src="/images/badpics/{{ users.[3].services.[0].badpic }}" alt="Card image cap">
+  <!--Image ends here(100px 180px)---->
+
+  <!--Description and date------->
+  <div class="card-body">
+      <div class="actionBox">
+
+
+
+                <div class="commentText">
+                    <p class="">
+                      <br /><br />
+
+                 <h3>Description:-</h3>{{users.[3].services.[0].description}}
+                    </p> <span class="date sub-text">on March 5th, 2014</span>
+                    </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<!-- END -->
+
+
+
+
 
 
 
