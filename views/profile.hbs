@@ -8,6 +8,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet" >
 <link href="/css/styles.css" rel="stylesheet" >
 <link href="/css/styles2.css" rel="stylesheet" >
+
 <link rel="stylesheet" type="text/css" href="indexcss.css">
   <link rel="shortcut icon" type="image/png" href="/images/fav.png" />
 <style>
@@ -15,6 +16,15 @@
 height: 1%;
  width:100%;
 }
+
+/*button*/
+/*.mono{
+    position: relative;
+    left: 140px;
+    bottom: -555px;
+}*/
+
+
 </style>
 </head>
 <body>
@@ -89,7 +99,7 @@ height: 1%;
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
- <div class="container">
+ <div class/*="container">
      <div class="row profile">
  		<div class="col-md-3">
  			<div class="profile-sidebar">
@@ -188,17 +198,11 @@ height: 1%;
 
 
 
-
- <!--UPLOAD BUTTON--->
- <div class="mono">
- <button type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
- </div>
- <!--PLOAD BUTTON ENDS-->
  <br>
  <br>
  <br>
 
-</div>
+
 
 <div align="center">
   <h2 style="font-family: 'Bungee Inline', cursive;color:rgb(33, 80, 113);">All of your uploads on map:-</h2>
@@ -220,7 +224,7 @@ function initMap(){
 var image = '../images/pot.png';
 
 
-var k,i,cords=[{{user.[0].location.[0]}},{{user.[0].location.[1]}},{{user.[1].location.[0]}},{{user.[1].location.[1]}},{{user.[2].location.[0]}},{{user.[2].location.[1]}},{{user.[3].location.[0]}},{{user.[3].location.[1]}},{{user.[4].location.[0]}},{{user.[4].location.[1]}},{{user.[5].location.[0]}},{{user.[5].location.[1]}},{{user.[6].location.[0]}},{{user.[6].location.[1]}},{{user.[7].location.[0]}},{{user.[7].location.[1]}},{{user.[8].location.[0]}},{{user.[8].location.[1]}},{{user.[9].location.[0]}},{{user.[9].location.[1]}}];
+var k,i,cords=[{{user.[0].location.[0]}},{{user.[0].location.[1]}},{{user.[1].location.[0]}},{{user.[1].location.[1]}},{{user.[2].location.[0]}},{{user.[2].location.[1]}},{{user.[3].location.[0]}},{{user.[3].location.[1]}},{{user.[4].location.[0]}},{{user.[4].location.[1]}},{{user.[5].location.[0]}},{{user.[5].location.[1]}},{{user.[6].location.[0]}},{{user.[6].location.[1]}},{{user.[7].location.[0]}},{{user.[7].location.[1]}},{{user.[8].location.[0]}},{{user.[8].location.[1]}},{{user.[9].location.[0]}},{{user.[9].location.[1]}},{{user.[10].location.[0]}},{{user.[10].location.[1]}},{{user.[11].location.[0]}},{{user.[11].location.[1]}}];
 k=0;
 i=0;
 
@@ -243,9 +247,13 @@ function addMarker(coords){
 </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPL_QUZ5EDYFX5jLABjwMXxbL7bf74WUs&callback=initMap" async defer></script>
 
-
-
-
+ <!--UPLOAD BUTTON--->
+ <div class="mono">
+   <a href="/api/addbadroad">
+ <button   type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
+ </a>
+ </div>
+ <!--uPLOAD BUTTON ENDS-->
 
 
 </body>

@@ -1,6 +1,9 @@
 
 
-body { background-image:url('/images/g.gif'); background-repeat:repeat; background-attachment: fixed;}
+ body { background-image:url('/images/gyu.jpg'); background-repeat:repeat; background-attachment: fixed;}
+
+
+
 
 h1{
   color:brown;
@@ -72,9 +75,10 @@ font-family: 'Montserrat Alternates', sans-serif;
 /*button*/
 
 .mono{
-    position: relative;
-    left: 140px;
-    top:450px;
+    position: fixed;
+    left: 265px;
+    top:630px;
+
 
 }
 

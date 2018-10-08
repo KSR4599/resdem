@@ -225,7 +225,7 @@ router.post('/uploads',multer(multerConf2).single('badvideo'),function(req, res)
 
 
 router.get('/addbadroad', ensureAuthenticated,function(req, res,next){
-  res.render('addbadroad')
+  res.render('addbad')
 })
 
 //Code for servicesAddOne

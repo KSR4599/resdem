@@ -113,7 +113,40 @@ h6{
 
 }
 
-body { background-image:url('/images/drogaz.png'); background-repeat:repeat; background-attachment: fixed;}
+/*button*/
+.mono{
+    position: relative;
+    left: 140px;
+    bottom: -555px;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-circle {
+    position: fixed;
+    width: 30px;
+    height: 30spx;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+.btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+
+body { background-image:url('/images/droga.png'); background-repeat:repeat; background-attachment: fixed;}
 
     </style>
 
@@ -177,6 +210,8 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
 
        {{#if user}}
 
+
+
        <li class="nav-item">
          <a class="nav-link mx-2" href="/api/profile">Profile</a>
        </li>
@@ -197,8 +232,8 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
           <input class="form-control mr-sm-2" type="search" placeholder="Search">
      </div>
    </div>
-
         </div>
+
 
    </nav>
 
@@ -209,6 +244,14 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 
+
+   <!--UPLOAD BUTTON--->
+   <div class="mono">
+     <a href="/api/addbadroad">
+   <button   type="button" class="btn btn-warning btn-circle btn-xl"><i class="fas fa-upload"></i></button>
+   </a>
+   </div>
+   <!--uPLOAD BUTTON ENDS-->
 
 
    <!---Entire image card------->
@@ -231,7 +274,7 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
      <div class="media-body">
 
 
-       <h5 class="media-heading"><strong>{{users.[0].username}}</strong></h5>
+       <h5 class="media-heading" style="font-family: 'Bungee Inline', cursive;"><strong>{{users.[0].username}}</strong></h5>
 
        <div class="media-location">
        <a href="/api1/allbadroads">location</a>
@@ -289,7 +332,7 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
   <div class="media-body">
 
 
-    <h5 class="media-heading"><strong>{{users.[1].username}}</strong></h5>
+    <h5 class="media-heading" style="font-family: 'Bungee Inline', cursive;"><strong>{{users.[1].username}}</strong></h5>
 
     <div class="media-location">
     <a href="/api1/allbadroads">location</a>
@@ -351,7 +394,7 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
   <div class="media-body">
 
 
-    <h5 class="media-heading"><strong>{{users.[1].username}}</strong></h5>
+    <h5 class="media-heading" style="font-family: 'Bungee Inline', cursive;"><strong>{{users.[1].username}}</strong></h5>
 
     <div class="media-location">
     <a href="/api1/allbadroads">location</a>
@@ -398,20 +441,20 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
 <!---Entire image card------->
 <div class="image-card">
 <div class="card" >
-  <span class="badge badge-info">{{users.[3].services.[0].status}}</span>
+  <span class="badge badge-info">{{users.[2].services.[0].status}}</span>
   <br />
  <!--username and location---->
 
  <div class="media">
   <div class="media-left">
     <a href="#">
-       <img class="media-object img-responsive" src="/images/profilepics/{{ users.[3].profileimage }}"  alt="...">
+       <img class="media-object img-responsive" src="/images/profilepics/{{ users.[2].profileimage }}"  alt="...">
     </a>
   </div>
   <div class="media-body">
 
 
-    <h5 class="media-heading"><strong>{{users.[3].username}}</strong></h5>
+    <h5 class="media-heading" style="font-family: 'Bungee Inline', cursive;"><strong>{{users.[2].username}}</strong></h5>
 
     <div class="media-location">
     <a href="/api1/allbadroads">location</a>
@@ -424,7 +467,7 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
 
 
  <!--Image comes here(100px 180px)---->
-<img class="card-img-top" src="/images/badpics/{{ users.[3].services.[0].badpic }}" alt="Card image cap">
+<img class="card-img-top" src="/images/badpics/{{ users.[2].services.[0].badpic }}" alt="Card image cap">
   <!--Image ends here(100px 180px)---->
 
   <!--Description and date------->
@@ -437,8 +480,8 @@ body { background-image:url('/images/drogaz.png'); background-repeat:repeat; bac
                     <p class="">
                       <br /><br />
 
-                 <h3>Description:-</h3>{{users.[3].services.[0].description}}
-                    </p> <span class="date sub-text">on March 5th, 2014</span>
+                 <h3>Description:-</h3>{{users.[2].services.[0].description}}
+               </p> <span class="date sub-text">on March 5th, 2018</span>
                     </div>
 
     </div>
