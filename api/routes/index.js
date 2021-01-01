@@ -181,9 +181,6 @@ router.post('/uploads',multer(multerConf2).single('badvideo'),function(req, res)
   var user=req.user;
   var id=user._id;
 
-
-
-
   User
     .findById(id)
     .select('-services')
@@ -519,7 +516,7 @@ router
 
 
 //,failureFlash:'Invalid Username or Password'
-
+//LOGIN
 router.post('/login',
 passport.authenticate('local',{failureRedirect:'/api/wronglogin'}),
 function(req, res, next){

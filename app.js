@@ -40,7 +40,7 @@ app.use(cookieParser());
 //session
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  store: new MongoStore({url: 'mongodb://localhost:27017/asksdata'}),
+  store: new MongoStore({url: 'mongodb://localhost:27017/ksr_book'}),
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true,
@@ -69,6 +69,7 @@ app.use(function(req, res,next){
 
 app.get('*',function(req,res,next){
   res.locals.user=req.user||null;
+  console.log("In get * and user is "+ req.user)
   next();
 })
 
@@ -105,9 +106,6 @@ app.use(passport.session());
 app.engine('hbs',hbs({extname:'hbs',defaultLayout: 'layout1', layoutsDir:__dirname + '/views/layouts'}));
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine','hbs');
-
-
-
 
 
 

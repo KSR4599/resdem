@@ -18,10 +18,6 @@ app.use(passport.session());
 
 
 
-
-
-
-
 module.exports.userRegister = function(req, res){
 res
  .render('register')
