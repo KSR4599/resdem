@@ -9,7 +9,7 @@
   },
   "homepage": "https://github.com/KSR4599/resdem#readme",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
